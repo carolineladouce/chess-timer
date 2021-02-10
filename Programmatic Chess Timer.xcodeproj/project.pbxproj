@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C6AEF0C525D38E6800CF003F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0C425D38E6800CF003F /* AppDelegate.swift */; };
+		C6AEF0C725D38E6800CF003F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */; };
+		C6AEF0C925D38E6800CF003F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0C825D38E6800CF003F /* ViewController.swift */; };
+		C6AEF0CC25D38E6800CF003F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AEF0CA25D38E6800CF003F /* Main.storyboard */; };
+		C6AEF0CE25D38E6A00CF003F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AEF0CD25D38E6A00CF003F /* Assets.xcassets */; };
+		C6AEF0D125D38E6A00CF003F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AEF0CF25D38E6A00CF003F /* LaunchScreen.storyboard */; };
+		C6AEF0DC25D38E6A00CF003F /* Programmatic_Chess_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0DB25D38E6A00CF003F /* Programmatic_Chess_TimerTests.swift */; };
+		C6AEF0E725D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0E625D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6AEF0D825D38E6A00CF003F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6AEF0B925D38E6800CF003F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6AEF0C025D38E6800CF003F;
+			remoteInfo = "Programmatic Chess Timer";
+		};
+		C6AEF0E325D38E6A00CF003F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6AEF0B925D38E6800CF003F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6AEF0C025D38E6800CF003F;
+			remoteInfo = "Programmatic Chess Timer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C6AEF0C125D38E6800CF003F /* Programmatic Chess Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Programmatic Chess Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6AEF0C425D38E6800CF003F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C6AEF0C825D38E6800CF003F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C6AEF0CB25D38E6800CF003F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6AEF0CD25D38E6A00CF003F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6AEF0D025D38E6A00CF003F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C6AEF0D225D38E6A00CF003F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6AEF0D725D38E6A00CF003F /* Programmatic Chess TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Programmatic Chess TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6AEF0DB25D38E6A00CF003F /* Programmatic_Chess_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programmatic_Chess_TimerTests.swift; sourceTree = "<group>"; };
+		C6AEF0DD25D38E6A00CF003F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6AEF0E225D38E6A00CF003F /* Programmatic Chess TimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Programmatic Chess TimerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6AEF0E625D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programmatic_Chess_TimerUITests.swift; sourceTree = "<group>"; };
+		C6AEF0E825D38E6A00CF003F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6AEF0BE25D38E6800CF003F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6AEF0D425D38E6A00CF003F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6AEF0DF25D38E6A00CF003F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C6AEF0B825D38E6800CF003F = {
+			isa = PBXGroup;
+			children = (
+				C6AEF0C325D38E6800CF003F /* Programmatic Chess Timer */,
+				C6AEF0DA25D38E6A00CF003F /* Programmatic Chess TimerTests */,
+				C6AEF0E525D38E6A00CF003F /* Programmatic Chess TimerUITests */,
+				C6AEF0C225D38E6800CF003F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C6AEF0C225D38E6800CF003F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6AEF0C125D38E6800CF003F /* Programmatic Chess Timer.app */,
+				C6AEF0D725D38E6A00CF003F /* Programmatic Chess TimerTests.xctest */,
+				C6AEF0E225D38E6A00CF003F /* Programmatic Chess TimerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6AEF0C325D38E6800CF003F /* Programmatic Chess Timer */ = {
+			isa = PBXGroup;
+			children = (
+				C6AEF0C425D38E6800CF003F /* AppDelegate.swift */,
+				C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */,
+				C6AEF0C825D38E6800CF003F /* ViewController.swift */,
+				C6AEF0CA25D38E6800CF003F /* Main.storyboard */,
+				C6AEF0CD25D38E6A00CF003F /* Assets.xcassets */,
+				C6AEF0CF25D38E6A00CF003F /* LaunchScreen.storyboard */,
+				C6AEF0D225D38E6A00CF003F /* Info.plist */,
+			);
+			path = "Programmatic Chess Timer";
+			sourceTree = "<group>";
+		};
+		C6AEF0DA25D38E6A00CF003F /* Programmatic Chess TimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6AEF0DB25D38E6A00CF003F /* Programmatic_Chess_TimerTests.swift */,
+				C6AEF0DD25D38E6A00CF003F /* Info.plist */,
+			);
+			path = "Programmatic Chess TimerTests";
+			sourceTree = "<group>";
+		};
+		C6AEF0E525D38E6A00CF003F /* Programmatic Chess TimerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C6AEF0E625D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift */,
+				C6AEF0E825D38E6A00CF003F /* Info.plist */,
+			);
+			path = "Programmatic Chess TimerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6AEF0C025D38E6800CF003F /* Programmatic Chess Timer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6AEF0EB25D38E6A00CF003F /* Build configuration list for PBXNativeTarget "Programmatic Chess Timer" */;
+			buildPhases = (
+				C6AEF0BD25D38E6800CF003F /* Sources */,
+				C6AEF0BE25D38E6800CF003F /* Frameworks */,
+				C6AEF0BF25D38E6800CF003F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Programmatic Chess Timer";
+			productName = "Programmatic Chess Timer";
+			productReference = C6AEF0C125D38E6800CF003F /* Programmatic Chess Timer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6AEF0D625D38E6A00CF003F /* Programmatic Chess TimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6AEF0EE25D38E6A00CF003F /* Build configuration list for PBXNativeTarget "Programmatic Chess TimerTests" */;
+			buildPhases = (
+				C6AEF0D325D38E6A00CF003F /* Sources */,
+				C6AEF0D425D38E6A00CF003F /* Frameworks */,
+				C6AEF0D525D38E6A00CF003F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6AEF0D925D38E6A00CF003F /* PBXTargetDependency */,
+			);
+			name = "Programmatic Chess TimerTests";
+			productName = "Programmatic Chess TimerTests";
+			productReference = C6AEF0D725D38E6A00CF003F /* Programmatic Chess TimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C6AEF0E125D38E6A00CF003F /* Programmatic Chess TimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6AEF0F125D38E6A00CF003F /* Build configuration list for PBXNativeTarget "Programmatic Chess TimerUITests" */;
+			buildPhases = (
+				C6AEF0DE25D38E6A00CF003F /* Sources */,
+				C6AEF0DF25D38E6A00CF003F /* Frameworks */,
+				C6AEF0E025D38E6A00CF003F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6AEF0E425D38E6A00CF003F /* PBXTargetDependency */,
+			);
+			name = "Programmatic Chess TimerUITests";
+			productName = "Programmatic Chess TimerUITests";
+			productReference = C6AEF0E225D38E6A00CF003F /* Programmatic Chess TimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6AEF0B925D38E6800CF003F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					C6AEF0C025D38E6800CF003F = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					C6AEF0D625D38E6A00CF003F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = C6AEF0C025D38E6800CF003F;
+					};
+					C6AEF0E125D38E6A00CF003F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = C6AEF0C025D38E6800CF003F;
+					};
+				};
+			};
+			buildConfigurationList = C6AEF0BC25D38E6800CF003F /* Build configuration list for PBXProject "Programmatic Chess Timer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6AEF0B825D38E6800CF003F;
+			productRefGroup = C6AEF0C225D38E6800CF003F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6AEF0C025D38E6800CF003F /* Programmatic Chess Timer */,
+				C6AEF0D625D38E6A00CF003F /* Programmatic Chess TimerTests */,
+				C6AEF0E125D38E6A00CF003F /* Programmatic Chess TimerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6AEF0BF25D38E6800CF003F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AEF0D125D38E6A00CF003F /* LaunchScreen.storyboard in Resources */,
+				C6AEF0CE25D38E6A00CF003F /* Assets.xcassets in Resources */,
+				C6AEF0CC25D38E6800CF003F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6AEF0D525D38E6A00CF003F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6AEF0E025D38E6A00CF003F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6AEF0BD25D38E6800CF003F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AEF0C925D38E6800CF003F /* ViewController.swift in Sources */,
+				C6AEF0C525D38E6800CF003F /* AppDelegate.swift in Sources */,
+				C6AEF0C725D38E6800CF003F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6AEF0D325D38E6A00CF003F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AEF0DC25D38E6A00CF003F /* Programmatic_Chess_TimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6AEF0DE25D38E6A00CF003F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AEF0E725D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6AEF0D925D38E6A00CF003F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6AEF0C025D38E6800CF003F /* Programmatic Chess Timer */;
+			targetProxy = C6AEF0D825D38E6A00CF003F /* PBXContainerItemProxy */;
+		};
+		C6AEF0E425D38E6A00CF003F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6AEF0C025D38E6800CF003F /* Programmatic Chess Timer */;
+			targetProxy = C6AEF0E325D38E6A00CF003F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C6AEF0CA25D38E6800CF003F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6AEF0CB25D38E6800CF003F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C6AEF0CF25D38E6A00CF003F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6AEF0D025D38E6A00CF003F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6AEF0E925D38E6A00CF003F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C6AEF0EA25D38E6A00CF003F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6AEF0EC25D38E6A00CF003F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKZTN2J83Q;
+				INFOPLIST_FILE = "Programmatic Chess Timer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolineladouce.Programmatic-Chess-Timer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C6AEF0ED25D38E6A00CF003F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKZTN2J83Q;
+				INFOPLIST_FILE = "Programmatic Chess Timer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolineladouce.Programmatic-Chess-Timer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C6AEF0EF25D38E6A00CF003F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKZTN2J83Q;
+				INFOPLIST_FILE = "Programmatic Chess TimerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolineladouce.Programmatic-Chess-TimerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Programmatic Chess Timer.app/Programmatic Chess Timer";
+			};
+			name = Debug;
+		};
+		C6AEF0F025D38E6A00CF003F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKZTN2J83Q;
+				INFOPLIST_FILE = "Programmatic Chess TimerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolineladouce.Programmatic-Chess-TimerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Programmatic Chess Timer.app/Programmatic Chess Timer";
+			};
+			name = Release;
+		};
+		C6AEF0F225D38E6A00CF003F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKZTN2J83Q;
+				INFOPLIST_FILE = "Programmatic Chess TimerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolineladouce.Programmatic-Chess-TimerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Programmatic Chess Timer";
+			};
+			name = Debug;
+		};
+		C6AEF0F325D38E6A00CF003F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKZTN2J83Q;
+				INFOPLIST_FILE = "Programmatic Chess TimerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carolineladouce.Programmatic-Chess-TimerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Programmatic Chess Timer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6AEF0BC25D38E6800CF003F /* Build configuration list for PBXProject "Programmatic Chess Timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AEF0E925D38E6A00CF003F /* Debug */,
+				C6AEF0EA25D38E6A00CF003F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6AEF0EB25D38E6A00CF003F /* Build configuration list for PBXNativeTarget "Programmatic Chess Timer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AEF0EC25D38E6A00CF003F /* Debug */,
+				C6AEF0ED25D38E6A00CF003F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6AEF0EE25D38E6A00CF003F /* Build configuration list for PBXNativeTarget "Programmatic Chess TimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AEF0EF25D38E6A00CF003F /* Debug */,
+				C6AEF0F025D38E6A00CF003F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6AEF0F125D38E6A00CF003F /* Build configuration list for PBXNativeTarget "Programmatic Chess TimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AEF0F225D38E6A00CF003F /* Debug */,
+				C6AEF0F325D38E6A00CF003F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6AEF0B925D38E6800CF003F /* Project object */;
+}
