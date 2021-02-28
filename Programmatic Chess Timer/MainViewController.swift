@@ -7,9 +7,36 @@
 
 import UIKit
 
+var GAME_TIME = 0
+
 class MainViewController: UIViewController {
     
     var model = Model()
+    
+    
+    // remaining time for player 1
+    var player1timeout = GAME_TIME
+    
+    // remaining time for player 2
+    var player2timeout = GAME_TIME
+    
+    var timer: Timer?
+
+    // true if game is paused
+    var isPaused = false
+    
+    var gameEnded = false
+    
+    enum GameState: Int {
+        case stopped
+        case running
+        case paused
+    }
+    
+    var gameState: GameState = .stopped
+    
+    
+    // ------------------------------
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +64,6 @@ class MainViewController: UIViewController {
         setTurnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setTurnButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     
-        
         self.view = view
         
         
@@ -81,40 +107,61 @@ class MainViewController: UIViewController {
         self.view = view
         
         
-        
+        //---------------------
         
         // Create Timer Labels:
-        
-        // Create Top Label:
-        let topLabel = UILabel()
-        topLabel.text = "00:00"
-        topLabel.translatesAutoresizingMaskIntoConstraints = false
       
-        view.addSubview(topLabel)
+        // Create Top Label/Player 1 clock:
+        var player1clock = UILabel()
+        player1clock.text = "0"
+        player1clock.translatesAutoresizingMaskIntoConstraints = false
+      
+        view.addSubview(player1clock)
         
         NSLayoutConstraint.activate([
-            topLabel.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -125),
+            player1clock.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -125),
         ])
         
-        topLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        player1clock.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        player1clock.transform = CGAffineTransform(rotationAngle: .pi)
         
         self.view = view
         
         
         // Create Bottom Label:
-        let bottomLabel = UILabel()
-        bottomLabel.text = "00:00"
-        bottomLabel.translatesAutoresizingMaskIntoConstraints = false
+        var player2clock = UILabel()
+        player2clock.text = "0"
+        player2clock.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(bottomLabel)
+        view.addSubview(player2clock)
         
         NSLayoutConstraint.activate([
-            bottomLabel.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 125)
+            player2clock.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 125)
         ])
         
-        bottomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        player2clock.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         self.view = view
+        
+        
+        
+        // Format the timers:
+        func formatTimer(time: TimeInterval) -> String {
+            let minutes = Int(time) / 60 % 60
+            let seconds = Int(time) % 60
+            return String(format: "%02i:%02i", minutes, seconds)
+        }
+        
+        player1clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+        player2clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
