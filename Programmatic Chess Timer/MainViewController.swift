@@ -7,11 +7,29 @@
 
 import UIKit
 
-var GAME_TIME = 0
+var GAME_TIME = 5
 
 class MainViewController: UIViewController {
     
-    var model = Model()
+//    var model = Model()
+    
+
+    
+    public var turn = 0
+
+    public var isPaused = false
+    
+    public var gameEnded = false
+    
+    public enum GameState: Int {
+        case stopped
+        case running
+        case paused
+    }
+    
+    public var gameState: GameState = .stopped
+    
+    
     
     
     // remaining time for player 1
@@ -20,23 +38,18 @@ class MainViewController: UIViewController {
     // remaining time for player 2
     var player2timeout = GAME_TIME
     
+    var savePreviousGameTime = 0
+    
     var timer: Timer?
-
     // true if game is paused
-    var isPaused = false
     
-    var gameEnded = false
+    let startPauseButton = UIButton(type: .system)
     
-    enum GameState: Int {
-        case stopped
-        case running
-        case paused
-    }
-    
-    var gameState: GameState = .stopped
+    var player1clock = UILabel()
+    var player2clock = UILabel()
     
     
-    // ------------------------------
+// --------------------------------------------------
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +59,7 @@ class MainViewController: UIViewController {
         
         let marginsGuide = view.layoutMarginsGuide
         
-        
+// --------------------------------------------------
         // Create Middle Buttons:
         
         // Create switch-turns button:
@@ -66,9 +79,9 @@ class MainViewController: UIViewController {
     
         self.view = view
         
-        
+// --------------------------------------------------
         // Create Start/Pause button:
-        let startPauseButton = UIButton(type: .system)
+        
         startPauseButton.setTitle("Start/Pause", for: .normal)
         startPauseButton.backgroundColor = .lightGray
         startPauseButton.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +99,7 @@ class MainViewController: UIViewController {
         
         self.view = view
         
+// --------------------------------------------------
         
         // Create Reset Button
         let resetButton = UIButton(type: .system)
@@ -106,13 +120,12 @@ class MainViewController: UIViewController {
         
         self.view = view
         
-        
-        //---------------------
+// --------------------------------------------------
         
         // Create Timer Labels:
       
         // Create Top Label/Player 1 clock:
-        var player1clock = UILabel()
+        
         player1clock.text = "0"
         player1clock.translatesAutoresizingMaskIntoConstraints = false
       
@@ -127,9 +140,10 @@ class MainViewController: UIViewController {
         
         self.view = view
         
+// --------------------------------------------------
         
         // Create Bottom Label:
-        var player2clock = UILabel()
+        
         player2clock.text = "0"
         player2clock.translatesAutoresizingMaskIntoConstraints = false
         
@@ -145,6 +159,13 @@ class MainViewController: UIViewController {
         
         
         
+        player1clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+        player2clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+        
+        
+    } // End viewDidLoad()
+// --------------------------------------------------
+        
         // Format the timers:
         func formatTimer(time: TimeInterval) -> String {
             let minutes = Int(time) / 60 % 60
@@ -152,42 +173,244 @@ class MainViewController: UIViewController {
             return String(format: "%02i:%02i", minutes, seconds)
         }
         
-        player1clock.text = formatTimer(time: TimeInterval(GAME_TIME))
-        player2clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+    // this code belongs to a function. find the proper function that it should go to
+//        player1clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+//        player2clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+//
+        
+      
+        
+        
+        
+        // Update timer/current player clock and label every second
+    @objc
+        func update() {
+            if self.isPaused == false {
+                    if turn == 1 {
+                        player1timeout -= 1
+                        if player1timeout <= 0 {
+                            endGame()
+                        }
+                        
+                    } else {
+                        player2timeout -= 1
+                        if player2timeout <= 0 {
+                            endGame()
+                        }
+                    }
+                }
+            updateBothLabels()
+        }
+        
+        
+        /// Game timer
+        func gameTimer() {
+          self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        }
+        
+        
+        func gameRunning() {
+            // Clock needs to countdown
+            // Text background colors need to change according to turn
+                gameTimer()
+                textBackgroundChangeColor()
+        }
+            
+        
+        // Change player turns (when x button is pressed)
+        func changeTurns() {
+            turn = turn == 1 ? 2:1
+        }
+        
+        
+        // Change text background colors
+        // Green when it's a players turn
+        // Red when it is not a players turn
+        func textBackgroundChangeColor() {
+            if turn == 1 {
+                player1clock.backgroundColor = UIColor.green
+                player2clock.backgroundColor = UIColor.red
+            } else if turn == 2 {
+                player2clock.backgroundColor = UIColor.green
+                player1clock.backgroundColor = UIColor.red
+            }
+        
+        }
+        
+        
+        func updateLabels(shouldChangeTurn: Bool) {
+            if shouldChangeTurn == true {
+                changeTurns()
+            }
+            textBackgroundChangeColor()
+        }
+        
+        
+        // When game is paused, turns do not change
+        func XButtonGamePaused() {
+                //clearTimer()
+                // doNotChangeTurns()
+            updateLabels(shouldChangeTurn: false)
+            }
+        
+     
+        func clearTimer() {
+            timer?.invalidate()
+            timer = nil
+            }
+            
+        
+        // If there is not a timer, start a timer
+        func startGameTimer() {
+    //        if timer == nil
+    //        {
+                gameTimer()
+    //        }
+            
+        }
+            
+        
+        func startGame() {
+            player1timeout = GAME_TIME
+            player2timeout = GAME_TIME
+        
+            turn = 2
+            self.gameEnded = false
+            updateBothLabels()
+        }
+            
+            
+        func updateBothLabels() {
+            //player1clock.text = "\(player1timeout)"
+            //player2clock.text = "\(player2timeout)"
+            
+            player1clock.text = formatTimer(time: TimeInterval(player1timeout))
+            player2clock.text = formatTimer(time: TimeInterval(player2timeout))
+        }
+            
+            
+        func endGame() {
+            clearTimer()
+            self.gameEnded = true
+        }
+            
+            
+        func ifTimeZeroThenEndGame() {
+            if player1timeout == 0 {
+            endGame()
+            turn = 0
+            }
+            if player2timeout == 0 {
+            endGame()
+            turn = 0
+            }
+        }
+        
+        
+
         
         
         
         
         
-        
-        
-        
-        
-        
-        
-    }
+    
     
     // MARK: - Touch Handlers
-    
-    @objc func startPauseButtonAction(sender: UIButton!) {
-        self.model.startPauseGame()
-    }
-    
+    @objc
+    func startPauseButtonAction(sender: UIButton!) {
+        switch self.gameState {
+            case  GameState.stopped:
+
+                if player1timeout <= 0 || player2timeout <= 0 {
+                    clearTimer()
+                    if GAME_TIME <= 0
+                    {
+                        timer = nil
+                    } else {
+                        gameTimer()
+                        self.gameState = GameState.running
+                        
+                        self.startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
+                    }
+
+                } else {
+                    gameTimer()
+                    self.gameState = GameState.running
+                    startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
+                }
+
+            case GameState.running:
+                self.isPaused = true
+                clearTimer()
+                updateLabels(shouldChangeTurn: false)
+                self.gameState = GameState.paused
+
+                startPauseButton.setTitle("CONTINUE", for: UIControl.State.normal)
+
+            case GameState.paused:
+                self.isPaused = false
+                gameTimer()
+                self.gameState = GameState.running
+                startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
+                }
+
+            //self.startGame()
+        } // End start/pause button
+
+
     @objc func setTurnButtonAction(sender: UIButton!) {
-        self.model.changeTurn()
+            switch self.gameState {
+            case GameState.stopped:
+            // When x is pressed when the game is in stopped, change timer and colors
+                updateLabels(shouldChangeTurn: true)
+
+            case GameState.running:
+            // When the game is running and x is pressed,
+            // current players timer pauses and players change turns
+            // activePlayer = activePlayer == 1? 2: 1
+                updateLabels(shouldChangeTurn: true)
+
+
+            case GameState.paused:
+            // When paused, x button doesn't do anything
+                self.isPaused = true
+            }
+
+               // self.changeTurns()
     }
     
-    @objc func resetButtonAction(sender: UIButton!) {
-        self.model.resetGame()
+    
+    @objc
+    func resetButtonAction(sender: UIButton!) {
+            clearTimer()
+            player1timeout = savePreviousGameTime
+            player2timeout = savePreviousGameTime
+
+            player1clock.text = formatTimer(time: TimeInterval(player1timeout))
+            player2clock.text = formatTimer(time: TimeInterval(player2timeout))
+
+            startPauseButton.setTitle("START", for: UIControl.State.normal)
+            gameState = GameState.stopped
+        }
+    
+    
+    
+        
+
+    
+        
+    
     }
-    
-    
-    
-    
-    
     // End Class
-}
     
+    
+
+
+    
+
+
+
+
 
     
     // MARK: - Navigation
