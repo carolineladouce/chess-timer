@@ -64,8 +64,8 @@ class MainViewController: UIViewController {
         
         // Create switch-turns button:
         let setTurnButton = UIButton(type: .system)
-        setTurnButton.setTitle("Change Turns", for: .normal)
-        setTurnButton.backgroundColor = .black
+        setTurnButton.setTitle("Set Turns", for: .normal)
+        setTurnButton.backgroundColor = .systemPink
         
         view.addSubview(setTurnButton)
         
@@ -82,7 +82,7 @@ class MainViewController: UIViewController {
         // --------------------------------------------------
         // Create Start/Pause button:
         
-        startPauseButton.setTitle("Start/Pause", for: .normal)
+        startPauseButton.setTitle("Start", for: .normal)
         startPauseButton.backgroundColor = .lightGray
         startPauseButton.translatesAutoresizingMaskIntoConstraints = false
         
