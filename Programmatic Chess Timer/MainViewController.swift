@@ -23,12 +23,15 @@ class MainViewController: UIViewController {
     
     public enum GameState: Int {
         case stopped
-        case running
+         case running
+//        case player1Turn
+//        case player2Turn
         case paused
     }
     
     public var gameState: GameState = .stopped
     
+   
     
     
     
@@ -38,7 +41,7 @@ class MainViewController: UIViewController {
     // remaining time for player 2
     var player2timeout = GAME_TIME
     
-    var savePreviousGameTime = 0
+    
     
     var timer: Timer?
     // true if game is paused
@@ -162,6 +165,8 @@ class MainViewController: UIViewController {
         player1clock.text = formatTimer(time: TimeInterval(GAME_TIME))
         player2clock.text = formatTimer(time: TimeInterval(GAME_TIME))
         
+        self.setupLabelTap()
+        
         
     } // End viewDidLoad()
     // --------------------------------------------------
@@ -185,13 +190,6 @@ class MainViewController: UIViewController {
     // Update timer/current player clock and label every second
     @objc
     func update() {
-        
-//        if self.isPaused == false && player1timeout <= 0 || player2timeout <= 0 {
-//            timer = nil
-//        }
-        
-        
-        
         if self.isPaused == false {
             
             if player1timeout <= 0 || player2timeout <= 0 {
@@ -323,10 +321,46 @@ class MainViewController: UIViewController {
     }
     
     
+    func topshowSetClockTime() {
+        
+        let setClockTime = SetClockTimeViewController()
+        setClockTime.onValueSet = {value in
+            print(value)
+            
+            // update each player timer values
+            self.player1timeout = value
+            self.player2timeout = value
+            
+            
+            
+            // then call function to update labels
+            self.updateBothLabels()
+           
+        }
+
+        self.present(setClockTime, animated: true, completion: {
+            print("Completion of Presentation")
+        })
+    }
+    
+    @objc func LabelTapped(_ sender: UITapGestureRecognizer) {
+        print("Top label Tapped")
+        self.topshowSetClockTime()
+      
+    }
+    
+        
     
     
-    
-    
+    func setupLabelTap() {
+        let player1clock = UITapGestureRecognizer(target: self, action: #selector(self.LabelTapped(_:)))
+        self.player1clock.isUserInteractionEnabled = true
+        self.player1clock.addGestureRecognizer(player1clock)
+        
+        let player2clock = UITapGestureRecognizer(target: self, action: #selector(self.LabelTapped(_:)))
+        self.player2clock.isUserInteractionEnabled = true
+        self.player2clock.addGestureRecognizer(player2clock)
+    }
     
     
     
@@ -337,24 +371,38 @@ class MainViewController: UIViewController {
         switch self.gameState {
         case  GameState.stopped:
             
-            if player1timeout <= 0 || player2timeout <= 0 {
-                clearTimer()
-                if GAME_TIME <= 0
-                {
-                    timer = nil
-                    self.gameState = GameState.stopped
-                } else {
-                    gameTimer()
-                    self.gameState = GameState.running
-                    
-                    self.startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
-                }
-                
-            } else {
-                gameTimer()
-                self.gameState = GameState.running
-                startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
-            }
+            // both player timeouts = GAME_TIME
+            // timer = nil
+            // then start timer
+            // set gamestate to running
+//             set button title to be paused
+        
+            
+            player1timeout = GAME_TIME
+            player2timeout = GAME_TIME
+            timer = nil
+            gameTimer()
+            self.gameState = GameState.running
+            self.startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
+            
+//            if player1timeout <= 0 || player2timeout <= 0 {
+//                clearTimer()
+//                if GAME_TIME <= 0
+//                {
+//                    timer = nil
+//                    self.gameState = GameState.stopped
+//                } else {
+//                    gameTimer()
+//                    self.gameState = GameState.running
+//
+//                    self.startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
+//                }
+//
+//            } else {
+//                gameTimer()
+//                self.gameState = GameState.running
+//                startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
+//            }
             
         case GameState.running:
             self.isPaused = true
@@ -401,15 +449,27 @@ class MainViewController: UIViewController {
     
     @objc
     func resetButtonAction(sender: UIButton!) {
-        clearTimer()
-        player1timeout = savePreviousGameTime
-        player2timeout = savePreviousGameTime
+        
+        player1timeout = GAME_TIME
+        player2timeout = GAME_TIME
+        timer = nil
+        
+        
+        
+        
+        self.isPaused = false
+        self.gameState = GameState.stopped
+        
+//        player1timeout = GAME_TIME
+//        player2timeout = GAME_TIME
         
         player1clock.text = formatTimer(time: TimeInterval(player1timeout))
         player2clock.text = formatTimer(time: TimeInterval(player2timeout))
         
         startPauseButton.setTitle("START", for: UIControl.State.normal)
-        gameState = GameState.stopped
+        
+        
+    
     }
     
     
