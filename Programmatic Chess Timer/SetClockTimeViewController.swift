@@ -7,26 +7,17 @@
 
 import UIKit
 
-
-
-
-
 class SetClockTimeViewController: UIViewController, UITextFieldDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setClockTime.text = "Hello"
-       
         view.backgroundColor = .white
     
-        
-        
         let setClockTime = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         setClockTime.center = CGPoint(x: 160, y: 175)
         setClockTime.textAlignment = .center
         setClockTime.text = "Input Timer Time"
-        //self.view.addSubview(label)
         
         let timeInput = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         timeInput.center = CGPoint(x: 160, y: 225)
@@ -35,50 +26,35 @@ class SetClockTimeViewController: UIViewController, UITextFieldDelegate {
         timeInput.keyboardType = UIKeyboardType.default
         timeInput.returnKeyType = UIReturnKeyType.done
         timeInput.clearButtonMode = UITextField.ViewMode.whileEditing;
-    
 
         timeInput.delegate = self
     
-        
         view.addSubview(setClockTime)
         view.addSubview(timeInput)
-        
-
-        // Do any additional setup after loading the view.
     }
     
+    var defaultTime = 600
     
     var onValueSet: ((_ value: Int) -> Void)?
     
     func textFieldShouldReturn(_ timeInput: UITextField) -> Bool {
         timeInput.resignFirstResponder()
         
-//        getTextFieldValue()
-        
-        //let myInt2 = Int(myString) ?? 0
         let textFieldString = timeInput.text ?? "0"
         
-        let textFieldInt = Int(textFieldString) ?? 0
+        var textFieldInt = Int(textFieldString) ?? 0
         
-        
-//        func timeString(time:TimeInterval) -> String {
-//        let hours = Int(time) / 3600
-//        let minutes = Int(time) / 60 % 60
-//        let seconds = Int(time) % 60
-//        return String(format:”%02i:%02i:%02i”, hours, minutes, seconds)
-//        }
-        
+        if textFieldInt == 0 {
+            textFieldInt = defaultTime
+        }
         
         self.onValueSet?(textFieldInt)
         
+        GAME_TIME = textFieldInt
         
         dismiss(animated: true, completion: nil)
         
-        
-        
         return true
-        
-        
     }
     
 
