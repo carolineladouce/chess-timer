@@ -267,13 +267,13 @@ class MainViewController: UIViewController {
     
     func showSetClockTime() {
         let setClockTime = SetClockTimeViewController()
-        setClockTime.onValueSet = {
-            value in
-            self.player1timeout = value
-            self.player2timeout = value
-            
-            self.updateBothLabels()
-        }
+//        setClockTime.onValueSet = {
+//            value in
+//            self.player1timeout = value
+//            self.player2timeout = value
+//
+//            self.updateBothLabels()
+//        }
         self.present(setClockTime, animated: true, completion: {
             print("Completion of Presentation")
         })

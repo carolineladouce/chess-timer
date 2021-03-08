@@ -7,55 +7,81 @@
 
 import UIKit
 
-class SetClockTimeViewController: UIViewController, UITextFieldDelegate {
+class SetClockTimeViewController: UIViewController
+//                                  ,UITextFieldDelegate
+{
+    
+    let tableView = UITableView()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .white
-    
-        let setClockTime = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        setClockTime.center = CGPoint(x: 160, y: 175)
-        setClockTime.textAlignment = .center
-        setClockTime.text = "Input Timer Time"
-        
-        let timeInput = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        timeInput.center = CGPoint(x: 160, y: 225)
-        timeInput.textAlignment = .center
-        timeInput.placeholder = "set time here"
-        timeInput.keyboardType = UIKeyboardType.default
-        timeInput.returnKeyType = UIReturnKeyType.done
-        timeInput.clearButtonMode = UITextField.ViewMode.whileEditing;
-
-        timeInput.delegate = self
-    
-        view.addSubview(setClockTime)
-        view.addSubview(timeInput)
+//        super.viewDidLoad()
+        super.loadView()
+        setupTableView()
     }
-    
-    var defaultTime = 600
-    
-    var onValueSet: ((_ value: Int) -> Void)?
-    
-    func textFieldShouldReturn(_ timeInput: UITextField) -> Bool {
-        timeInput.resignFirstResponder()
         
-        let textFieldString = timeInput.text ?? "0"
+    func setupTableView() {
+        view.addSubview(tableView)
         
-        var textFieldInt = Int(textFieldString) ?? 0
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        if textFieldInt == 0 {
-            textFieldInt = defaultTime
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         }
-        
-        self.onValueSet?(textFieldInt)
-        
-        GAME_TIME = textFieldInt
-        
-        dismiss(animated: true, completion: nil)
-        
-        return true
     }
+    
+    
+    
+    
+    
+//        view.backgroundColor = .white
+    
+//        let setClockTime = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+//        setClockTime.center = CGPoint(x: 160, y: 175)
+//        setClockTime.textAlignment = .center
+//        setClockTime.text = "Input Timer Time"
+//
+//        let timeInput = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+//        timeInput.center = CGPoint(x: 160, y: 225)
+//        timeInput.textAlignment = .center
+//        timeInput.placeholder = "set time here"
+//        timeInput.keyboardType = UIKeyboardType.default
+//        timeInput.returnKeyType = UIReturnKeyType.done
+//        timeInput.clearButtonMode = UITextField.ViewMode.whileEditing;
+//
+//        timeInput.delegate = self
+//
+//        view.addSubview(setClockTime)
+//        view.addSubview(timeInput)
+//    }
+    
+//    var defaultTime = 600
+//
+//    var onValueSet: ((_ value: Int) -> Void)?
+//
+//    func textFieldShouldReturn(_ timeInput: UITextField) -> Bool {
+//        timeInput.resignFirstResponder()
+//
+//        let textFieldString = timeInput.text ?? "0"
+//
+//        var textFieldInt = Int(textFieldString) ?? 0
+//
+//        if textFieldInt == 0 {
+//            textFieldInt = defaultTime
+//        }
+//
+//        self.onValueSet?(textFieldInt)
+//
+//        GAME_TIME = textFieldInt
+//
+//        dismiss(animated: true, completion: nil)
+//
+//        return true
+//    }
     
 
     /*
@@ -68,4 +94,4 @@ class SetClockTimeViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
-}
+
