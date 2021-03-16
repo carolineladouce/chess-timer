@@ -44,11 +44,11 @@ class SetClockTimeViewController: UIViewController {
     }
     
     
-    func formatTimer(time: TimeInterval) -> String {
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format: "%02i:%02i", minutes, seconds)
-    }
+//    func formatTimer(time: TimeInterval) -> String {
+//        let minutes = Int(time) / 60 % 60
+//        let seconds = Int(time) % 60
+//        return String(format: "%02i:%02i", minutes, seconds)
+//    }
     
     
     func addButtonsToStackView() {
@@ -56,11 +56,14 @@ class SetClockTimeViewController: UIViewController {
             let button = TimerStackSection()
             // do proper formatting
             
-           
-            button.setTitle(formatTimer(time: TimeInterval(i)), for: .normal)
-//            button.setTitle("\(i)", for: .normal)
             let gr = TimerButtonTapGestureRecognizer(target: self, action: #selector(buttonTapped))
             gr.time = i
+            
+            
+            
+            button.setTitle("\(i)", for: .normal)
+//            button.setTitle(formatTimer(time: TimeInterval(i)), for: .normal)
+            
             button.isUserInteractionEnabled = true
             button.addGestureRecognizer(gr)
             stackView.addArrangedSubview(button)
