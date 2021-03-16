@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C61F80C225DF526F00E159F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61F80C125DF526F00E159F1 /* MainViewController.swift */; };
+		C66C896825F83756001130A3 /* TimerStackSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66C896725F83756001130A3 /* TimerStackSection.swift */; };
 		C6AEF0C525D38E6800CF003F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0C425D38E6800CF003F /* AppDelegate.swift */; };
 		C6AEF0C725D38E6800CF003F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */; };
 		C6AEF0CE25D38E6A00CF003F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AEF0CD25D38E6A00CF003F /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		C61F80C125DF526F00E159F1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C66C896725F83756001130A3 /* TimerStackSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStackSection.swift; sourceTree = "<group>"; };
 		C6AEF0C125D38E6800CF003F /* Programmatic Chess Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Programmatic Chess Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AEF0C425D38E6800CF003F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				C6AEF0C425D38E6800CF003F /* AppDelegate.swift */,
 				C61F80C125DF526F00E159F1 /* MainViewController.swift */,
 				C6DCCD5625EECF88004F6B08 /* SetClockTimeViewController.swift */,
+				C66C896725F83756001130A3 /* TimerStackSection.swift */,
 				C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */,
 				C6AEF0CD25D38E6A00CF003F /* Assets.xcassets */,
 				C6AEF0CF25D38E6A00CF003F /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 				C61F80C225DF526F00E159F1 /* MainViewController.swift in Sources */,
 				C6AEF0C525D38E6800CF003F /* AppDelegate.swift in Sources */,
 				C6AEF0C725D38E6800CF003F /* SceneDelegate.swift in Sources */,
+				C66C896825F83756001130A3 /* TimerStackSection.swift in Sources */,
 				C6DCCD5725EECF88004F6B08 /* SetClockTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

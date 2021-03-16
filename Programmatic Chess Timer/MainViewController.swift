@@ -7,10 +7,10 @@
 
 import UIKit
 
-public var GAME_TIME = 5
+let DEFAULT_GAME_TIME = 5
 
 class MainViewController: UIViewController {
-
+    
     public var turn = 2
     
     public enum GameState: Int {
@@ -25,8 +25,8 @@ class MainViewController: UIViewController {
             if newValue == .stopped {
                 // Timers:
                 clearTimer()
-                player1timeout = GAME_TIME
-                player2timeout = GAME_TIME
+                player1timeout = DEFAULT_GAME_TIME
+                player2timeout = DEFAULT_GAME_TIME
                 updateBothLabels()
                
                 // Start/Pause, Set Turns, and Reset buttons:
@@ -58,8 +58,8 @@ class MainViewController: UIViewController {
     } // End gameState
     
     
-    var player1timeout = GAME_TIME
-    var player2timeout = GAME_TIME
+    var player1timeout = DEFAULT_GAME_TIME
+    var player2timeout = DEFAULT_GAME_TIME
     
     var timer: Timer?
     
@@ -177,8 +177,8 @@ class MainViewController: UIViewController {
         
         self.view = view
         
-        player1clock.text = formatTimer(time: TimeInterval(GAME_TIME))
-        player2clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+        player1clock.text = formatTimer(time: TimeInterval(player1timeout))
+        player2clock.text = formatTimer(time: TimeInterval(player2timeout))
         
         self.setupLabelTap()
         
@@ -265,15 +265,17 @@ class MainViewController: UIViewController {
     
     // ------------------------------------------------------
     
+//    func playerSetTime() {
+//        DEFAULT_GAME_TIME = SetClockTimeViewController.time
+//        self.player1timeout = DEFAULT_GAME_TIME
+//        self.player2timeout = DEFAULT_GAME_TIME
+//        self.updateBothLabels()
+//    }
+//
+    
     func showSetClockTime() {
         let setClockTime = SetClockTimeViewController()
-//        setClockTime.onValueSet = {
-//            value in
-//            self.player1timeout = value
-//            self.player2timeout = value
-//
-//            self.updateBothLabels()
-//        }
+        setClockTime.mainViewController = self
         self.present(setClockTime, animated: true, completion: {
             print("Completion of Presentation")
         })
