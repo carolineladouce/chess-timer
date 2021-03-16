@@ -44,25 +44,14 @@ class SetClockTimeViewController: UIViewController {
     }
     
     
-//    func formatTimer(time: TimeInterval) -> String {
-//        let minutes = Int(time) / 60 % 60
-//        let seconds = Int(time) % 60
-//        return String(format: "%02i:%02i", minutes, seconds)
-//    }
-    
-    
     func addButtonsToStackView() {
         for i in times {
             let button = TimerStackSection()
-            // do proper formatting
-            
+         
             let gr = TimerButtonTapGestureRecognizer(target: self, action: #selector(buttonTapped))
-            gr.time = i
-            
-            
+            gr.time = i*60
             
             button.setTitle("\(i)", for: .normal)
-//            button.setTitle(formatTimer(time: TimeInterval(i)), for: .normal)
             
             button.isUserInteractionEnabled = true
             button.addGestureRecognizer(gr)
@@ -102,21 +91,16 @@ class SetClockTimeViewController: UIViewController {
     
     @objc
     func buttonTapped(sender: Any) {
-        
         if let gr  = sender as? TimerButtonTapGestureRecognizer {
             if let time = gr.time {
-                // TODO: Add a functiomn in main view controller that does all of this
-                self.mainViewController?.player1timeout = time
-                self.mainViewController?.player2timeout = time
-                self.mainViewController?.updateBothLabels()
+                self.mainViewController?.timeSelected(time: time)
             }
-            
+    
             dismiss(animated: true, completion: {})
         }
     }
     
     
-    
-    
+
     
 } // End of Class

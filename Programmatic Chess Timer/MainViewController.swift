@@ -11,6 +11,8 @@ let DEFAULT_GAME_TIME = 5
 
 class MainViewController: UIViewController {
     
+    var game_time = DEFAULT_GAME_TIME
+    
     public var turn = 2
     
     public enum GameState: Int {
@@ -25,8 +27,8 @@ class MainViewController: UIViewController {
             if newValue == .stopped {
                 // Timers:
                 clearTimer()
-                player1timeout = DEFAULT_GAME_TIME
-                player2timeout = DEFAULT_GAME_TIME
+                player1timeout = game_time
+                player2timeout = game_time
                 updateBothLabels()
                
                 // Start/Pause, Set Turns, and Reset buttons:
@@ -297,6 +299,17 @@ class MainViewController: UIViewController {
         self.player2clock.isUserInteractionEnabled = true
         self.player2clock.addGestureRecognizer(player2clock)
     }
+    
+    
+    
+    func timeSelected(time: Int) {
+        game_time = time
+        player1timeout = time
+        player2timeout = time
+        
+        updateBothLabels()
+    }
+    
     
     
     
