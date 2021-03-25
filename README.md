@@ -1,14 +1,14 @@
 # Chess Timer 
 
-Turn an iPhone into your chess timer! 
+Turn an iPhone into a chess timer! 
 
 ## How it is built 
 
-This app is built programatically (without Storyboards)
+This app is built programatically (without Storyboards) using Swift and UIKit
 
 ## How to use the app
 
-Set your iPhone aside the chess board and start the timer. Each player can tap their side of the iPhone to switch turns. 
+Set your iPhone next to the chess board. Each player can select the game time from pre-set timers, switch turns, and start/pause/reset the game. 
 
 ## Author
 
