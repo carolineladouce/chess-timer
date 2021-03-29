@@ -7,10 +7,12 @@
 
 import UIKit
 
-public var GAME_TIME = 5
+let DEFAULT_GAME_TIME = 10*60
 
 class MainViewController: UIViewController {
-
+    
+    var game_time = DEFAULT_GAME_TIME
+    
     public var turn = 2
     
     public enum GameState: Int {
@@ -25,10 +27,10 @@ class MainViewController: UIViewController {
             if newValue == .stopped {
                 // Timers:
                 clearTimer()
-                player1timeout = GAME_TIME
-                player2timeout = GAME_TIME
+                player1timeout = game_time
+                player2timeout = game_time
                 updateBothLabels()
-               
+                
                 // Start/Pause, Set Turns, and Reset buttons:
                 startPauseButton.setTitle("START", for: UIControl.State.normal)
             }
@@ -58,8 +60,8 @@ class MainViewController: UIViewController {
     } // End gameState
     
     
-    var player1timeout = GAME_TIME
-    var player2timeout = GAME_TIME
+    var player1timeout = DEFAULT_GAME_TIME
+    var player2timeout = DEFAULT_GAME_TIME
     
     var timer: Timer?
     
@@ -85,7 +87,7 @@ class MainViewController: UIViewController {
         
         // --------------------------------------------------
         // Create Middle Buttons:
-    
+        
         // Start/Pause Button:
         startPauseButton.setTitle("START", for: .normal)
         startPauseButton.backgroundColor = .lightGray
@@ -177,8 +179,8 @@ class MainViewController: UIViewController {
         
         self.view = view
         
-        player1clock.text = formatTimer(time: TimeInterval(GAME_TIME))
-        player2clock.text = formatTimer(time: TimeInterval(GAME_TIME))
+        player1clock.text = formatTimer(time: TimeInterval(player1timeout))
+        player2clock.text = formatTimer(time: TimeInterval(player2timeout))
         
         self.setupLabelTap()
         
@@ -196,28 +198,28 @@ class MainViewController: UIViewController {
         return String(format: "%02i:%02i", minutes, seconds)
     }
     
-
+    
     // Update timer/current player clock and label every second (while game .running)
     @objc func update() {
-            if player1timeout <= 0 || player2timeout <= 0 {
-                timer = nil
-            } else if player1timeout > 0 || player2timeout > 0 {
-                if self.turn == 1 {
-                    self.player1timeout -= 1
-                    if player1timeout <= 0 {
-                        gameState = GameState.ended
-                    }
-                } else {
-                    player2timeout -= 1
-                    if player2timeout <= 0 {
-                        gameState = GameState.ended
-                    }
+        if player1timeout <= 0 || player2timeout <= 0 {
+            timer = nil
+        } else if player1timeout > 0 || player2timeout > 0 {
+            if self.turn == 1 {
+                self.player1timeout -= 1
+                if player1timeout <= 0 {
+                    gameState = GameState.ended
+                }
+            } else {
+                player2timeout -= 1
+                if player2timeout <= 0 {
+                    gameState = GameState.ended
                 }
             }
-            updateBothLabels()
+        }
+        updateBothLabels()
     }
     
-
+    
     func gameTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     }
@@ -227,22 +229,22 @@ class MainViewController: UIViewController {
         timer?.invalidate()
         timer = nil
     }
-
+    
     
     func updateBothLabels() {
         player1clock.text = formatTimer(time: TimeInterval(player1timeout))
         player2clock.text = formatTimer(time: TimeInterval(player2timeout))
     }
-
+    
     
     func ifTimeZeroThenEndGame() {
-            if player1timeout == 0 {
-                gameState = GameState.ended
-            }
-            if player2timeout == 0 {
-                gameState = GameState.ended
-            }
+        if player1timeout == 0 {
+            gameState = GameState.ended
         }
+        if player2timeout == 0 {
+            gameState = GameState.ended
+        }
+    }
     
     
     // ------------------------------------------------------
@@ -251,29 +253,31 @@ class MainViewController: UIViewController {
         turn = turn == 1 ? 2:1
     }
     
-
+    
     func textBackgroundChangeColor() {
         if turn == 1 {
             player1clock.backgroundColor = UIColor.green
-            player2clock.backgroundColor = UIColor.red
+            player1clock.textColor = UIColor.black
+            
+            player2clock.backgroundColor = UIColor.black
+            player2clock.textColor = UIColor.white
         } else if turn == 2 {
             player2clock.backgroundColor = UIColor.green
-            player1clock.backgroundColor = UIColor.red
+            player2clock.textColor = UIColor.black
+            
+            player1clock.backgroundColor = UIColor.black
+            player1clock.textColor = UIColor.white
         }
     }
     
+
     
     // ------------------------------------------------------
     
+    
     func showSetClockTime() {
         let setClockTime = SetClockTimeViewController()
-        setClockTime.onValueSet = {
-            value in
-            self.player1timeout = value
-            self.player2timeout = value
-            
-            self.updateBothLabels()
-        }
+        setClockTime.mainViewController = self
         self.present(setClockTime, animated: true, completion: {
             print("Completion of Presentation")
         })
@@ -298,7 +302,18 @@ class MainViewController: UIViewController {
     
     
     
-    // MARK: - Touch Handlers
+    func timeSelected(time: Int) {
+        game_time = time
+        player1timeout = time
+        player2timeout = time
+        
+        updateBothLabels()
+    }
+    
+    
+    
+    
+// MARK: - Touch Handlers
     @objc func startPauseButtonAction(sender: UIButton!) {
         if gameState == GameState.stopped || gameState == MainViewController.GameState.paused {
             gameState = GameState.running
@@ -311,8 +326,8 @@ class MainViewController: UIViewController {
     
     
     @objc func setTurnButtonAction(sender: UIButton!) {
-            changeTurns()
-            textBackgroundChangeColor()
+        changeTurns()
+        textBackgroundChangeColor()
     }
     
     
@@ -328,14 +343,6 @@ class MainViewController: UIViewController {
 
 
 
-
-// MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//    }
 
 
 

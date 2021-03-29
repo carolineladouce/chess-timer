@@ -7,65 +7,100 @@
 
 import UIKit
 
-class SetClockTimeViewController: UIViewController, UITextFieldDelegate {
+class TimerButtonTapGestureRecognizer: UITapGestureRecognizer {
+    var time: Int?
+}
+
+
+class SetClockTimeViewController: UIViewController {
+   public var mainViewController: MainViewController?
+    
+    /// in seconds
+    let times: [Int] = [1,2,3,5,10]
+    var butttons: [TimerStackSection] = []
+
+    var stackView = UIStackView()
+    var titleLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
-    
-        let setClockTime = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        setClockTime.center = CGPoint(x: 160, y: 175)
-        setClockTime.textAlignment = .center
-        setClockTime.text = "Input Timer Time"
-        
-        let timeInput = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        timeInput.center = CGPoint(x: 160, y: 225)
-        timeInput.textAlignment = .center
-        timeInput.placeholder = "set time here"
-        timeInput.keyboardType = UIKeyboardType.default
-        timeInput.returnKeyType = UIReturnKeyType.done
-        timeInput.clearButtonMode = UITextField.ViewMode.whileEditing;
-
-        timeInput.delegate = self
-    
-        view.addSubview(setClockTime)
-        view.addSubview(timeInput)
+        configureTitleLabel()
+        configureStackView()
     }
     
-    var defaultTime = 600
+
     
-    var onValueSet: ((_ value: Int) -> Void)?
+    func configureStackView() {
+        view.addSubview(stackView)
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20
+        
+        addButtonsToStackView()
+        
+        // constraints
+        setstackViewConstraints()
+    }
     
-    func textFieldShouldReturn(_ timeInput: UITextField) -> Bool {
-        timeInput.resignFirstResponder()
-        
-        let textFieldString = timeInput.text ?? "0"
-        
-        var textFieldInt = Int(textFieldString) ?? 0
-        
-        if textFieldInt == 0 {
-            textFieldInt = defaultTime
+    
+    func addButtonsToStackView() {
+        for i in times {
+            let button = TimerStackSection()
+         
+            let gr = TimerButtonTapGestureRecognizer(target: self, action: #selector(buttonTapped))
+            gr.time = i*60
+            
+            button.setTitle("\(i)", for: .normal)
+            
+            button.isUserInteractionEnabled = true
+            button.addGestureRecognizer(gr)
+            stackView.addArrangedSubview(button)
+            self.butttons.append(button)
         }
-        
-        self.onValueSet?(textFieldInt)
-        
-        GAME_TIME = textFieldInt
-        
-        dismiss(animated: true, completion: nil)
-        
-        return true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setstackViewConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
     }
-    */
+    
+    
+    func configureTitleLabel() {
+        view.addSubview(titleLabel)
+        titleLabel.text = "Set Timer:"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
+        titleLabel.adjustsFontSizeToFitWidth = true
+        
+        setTitleLabelConstraints()
+    }
+    
+    func setTitleLabelConstraints() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+    }
+    
+    
+    @objc
+    func buttonTapped(sender: Any) {
+        if let gr  = sender as? TimerButtonTapGestureRecognizer {
+            if let time = gr.time {
+                self.mainViewController?.timeSelected(time: time)
+            }
+    
+            dismiss(animated: true, completion: {})
+        }
+    }
+    
+    
 
-}
+    
+} // End of Class
