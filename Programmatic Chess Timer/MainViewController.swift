@@ -90,7 +90,7 @@ class MainViewController: UIViewController {
         
         // Start/Pause Button:
         startPauseButton.setTitle("START", for: .normal)
-        startPauseButton.backgroundColor = .lightGray
+        startPauseButton.backgroundColor = .blue
         startPauseButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(startPauseButton)
