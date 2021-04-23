@@ -72,6 +72,17 @@ class MainViewController: UIViewController {
     var player1clock = UILabel()
     var player2clock = UILabel()
     
+    // ------------------------------------------------------
+    // Add gradient block:
+    let gradientBlock: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.colors = [
+            UIColor.blue.cgColor,
+            UIColor.green.cgColor
+        ]
+        return layer
+    }()
+    
     
     // ------------------------------------------------------
     
@@ -84,6 +95,8 @@ class MainViewController: UIViewController {
         textBackgroundChangeColor()
         
         let marginsGuide = view.layoutMarginsGuide
+        
+        
         
         // --------------------------------------------------
         // Create Middle Buttons:
