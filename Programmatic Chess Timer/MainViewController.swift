@@ -97,6 +97,8 @@ class MainViewController: UIViewController {
         let marginsGuide = view.layoutMarginsGuide
         
         
+        view.layer.addSublayer(gradientBlock)
+        gradientBlock.frame = view.bounds
         
         // --------------------------------------------------
         // Create Middle Buttons:
@@ -199,6 +201,14 @@ class MainViewController: UIViewController {
         
     }
     // End viewDidLoad()
+    
+    // ------------------------------------------------------
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        gradientBlock.frame = view.bounds
+    }
     
     
     // ------------------------------------------------------
