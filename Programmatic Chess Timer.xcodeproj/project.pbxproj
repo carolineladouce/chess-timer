@@ -15,6 +15,7 @@
 		C6AEF0D125D38E6A00CF003F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AEF0CF25D38E6A00CF003F /* LaunchScreen.storyboard */; };
 		C6AEF0DC25D38E6A00CF003F /* Programmatic_Chess_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0DB25D38E6A00CF003F /* Programmatic_Chess_TimerTests.swift */; };
 		C6AEF0E725D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AEF0E625D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift */; };
+		C6BA4D972633B6050028C33F /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA4D962633B6050028C33F /* GradientButton.swift */; };
 		C6DCCD5725EECF88004F6B08 /* SetClockTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DCCD5625EECF88004F6B08 /* SetClockTimeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		C6AEF0E225D38E6A00CF003F /* Programmatic Chess TimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Programmatic Chess TimerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AEF0E625D38E6A00CF003F /* Programmatic_Chess_TimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programmatic_Chess_TimerUITests.swift; sourceTree = "<group>"; };
 		C6AEF0E825D38E6A00CF003F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6BA4D962633B6050028C33F /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		C6DCCD5625EECF88004F6B08 /* SetClockTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetClockTimeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			children = (
 				C6AEF0C425D38E6800CF003F /* AppDelegate.swift */,
 				C61F80C125DF526F00E159F1 /* MainViewController.swift */,
+				C6BA4D962633B6050028C33F /* GradientButton.swift */,
 				C6DCCD5625EECF88004F6B08 /* SetClockTimeViewController.swift */,
 				C66C896725F83756001130A3 /* TimerStackSection.swift */,
 				C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C61F80C225DF526F00E159F1 /* MainViewController.swift in Sources */,
+				C6BA4D972633B6050028C33F /* GradientButton.swift in Sources */,
 				C6AEF0C525D38E6800CF003F /* AppDelegate.swift in Sources */,
 				C6AEF0C725D38E6800CF003F /* SceneDelegate.swift in Sources */,
 				C66C896825F83756001130A3 /* TimerStackSection.swift in Sources */,

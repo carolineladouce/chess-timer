@@ -66,7 +66,7 @@ class MainViewController: UIViewController {
     var timer: Timer?
     
     let startPauseButton = UIButton(type: .system)
-    let setTurnButton = UIButton(type: .system)
+    let setTurnButton = GradientButton() // UIButton(type: .system)
     let resetButton = UIButton(type: .system)
     
     var player1clock = UILabel()
