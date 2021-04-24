@@ -92,7 +92,7 @@ class MainViewController: UIViewController {
         let view = UIView()
         
         view.backgroundColor = UIColor.white
-        textBackgroundChangeColor()
+        //textBackgroundChangeColor()
         
         let marginsGuide = view.layoutMarginsGuide
         
@@ -104,8 +104,9 @@ class MainViewController: UIViewController {
         // Create Middle Buttons:
         
         // Start/Pause Button:
-        startPauseButton.setTitle("START", for: .normal)
-        startPauseButton.backgroundColor = .blue
+        startPauseButton.setTitle("start", for: .normal)
+//        startPauseButton.backgroundColor = .blue
+        startPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
         startPauseButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(startPauseButton)
@@ -142,9 +143,10 @@ class MainViewController: UIViewController {
         
         // --------------------------------------------------
         // Reset Button:
-        resetButton.setTitle("RESET", for: .normal)
+        resetButton.setTitle("reset", for: .normal)
+        resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+//        resetButton.backgroundColor = .orange
         resetButton.translatesAutoresizingMaskIntoConstraints = false
-        resetButton.backgroundColor = .orange
         
         view.addSubview(resetButton)
         
@@ -165,12 +167,13 @@ class MainViewController: UIViewController {
         
         // Top Label/ player1clock:
         player1clock.text = "0"
+        player1clock.font = UIFont.systemFont(ofSize: 96)
         player1clock.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(player1clock)
         
         NSLayoutConstraint.activate([
-            player1clock.bottomAnchor.constraint(equalTo: resetButton.topAnchor, constant: -125),
+            player1clock.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -175),
         ])
         
         player1clock.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -182,12 +185,13 @@ class MainViewController: UIViewController {
         // --------------------------------------------------
         // Create Bottom Label/ player2clock:
         player2clock.text = "0"
+        player2clock.font = UIFont.systemFont(ofSize: 96)
         player2clock.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(player2clock)
         
         NSLayoutConstraint.activate([
-            player2clock.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 125)
+            player2clock.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 175)
         ])
         
         player2clock.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -207,7 +211,7 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        gradientBlock.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.size.height / 2)
+        gradientBlock.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.size.height / 1.85)
     }
     
     
