@@ -77,8 +77,8 @@ class MainViewController: UIViewController {
     let gradientBlock: CAGradientLayer = {
         let layer = CAGradientLayer()
         layer.colors = [
-            UIColor.blue.cgColor,
-            UIColor.green.cgColor
+            UIColor.purple.cgColor,
+            UIColor.systemTeal.cgColor
         ]
         return layer
     }()
@@ -145,6 +145,7 @@ class MainViewController: UIViewController {
         // Reset Button:
         resetButton.setTitle("reset", for: .normal)
         resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+        //resetButton.setTitleColor(.gray, for: .normal)
 //        resetButton.backgroundColor = .orange
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         
