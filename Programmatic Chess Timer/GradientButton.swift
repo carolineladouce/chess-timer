@@ -14,19 +14,26 @@ class GradientButton: UIView {
 //    // An empty implementation adversely affects performance during animation.
 //    override func draw(_ rect: CGRect) {
 //        // Drawing code
+//
+//
 //    }
+
+   
+    
+    var buttonOuterLayer: CALayer?
+    var buttonInnerLayer: CALayer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let buttonOuterLayer = createButtonOuterLayer()
-        let buttonInnerLayer = createButtonInnerLayer()
+        self.buttonOuterLayer = createButtonOuterLayer()
+        self.buttonInnerLayer = createButtonInnerLayer()
         
-        layer.addSublayer(buttonOuterLayer)
-        layer.addSublayer(buttonInnerLayer)
+        layer.addSublayer(buttonOuterLayer!)
+        layer.addSublayer(buttonInnerLayer!)
         
-        self.buttonOuterLayer = buttonOuterLayer
-        self.buttonInnerLayer = buttonInnerLayer
+//        self.buttonOuterLayer = buttonOuterLayer
+//        self.buttonInnerLayer = buttonInnerLayer
     } // End
 
     
@@ -39,15 +46,23 @@ class GradientButton: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        buttonOuterLayer.frame = self.bounds
-        buttonOuterLayer.cornerRadius = buttonOuterLayer.frame.width / 2
+//        gradientBlock.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.size.height / 1.85)
         
-        buttonInnerLayer.frame = CGRect(
-        innerLayerMargin, // top
-            innerLayerMargin, // left
-            self.bounds.width - innerLayerMargin * 2,
-            self.bounds.height - innerLayerMargin * 2)
         
+        if let btn = buttonOuterLayer {
+            btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+            btn.cornerRadius = btn.frame.width / 2
+        }
+        
+        
+        if let bto = buttonInnerLayer {
+            bto.frame = CGRect(
+                x: innerLayerMargin,
+                y: innerLayerMargin,
+                width: self.bounds.width - innerLayerMargin * 2,
+                height: self.bounds.height - innerLayerMargin * 2)
+        }
+
     } // End
     
     

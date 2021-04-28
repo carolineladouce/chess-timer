@@ -125,13 +125,13 @@ class MainViewController: UIViewController {
         
         // --------------------------------------------------
         // Switch-turns button:
-        setTurnButton.setTitle("CHANGE TURNS", for: .normal)
-        setTurnButton.backgroundColor = .systemPink
+//        setTurnButton.setTitle("CHANGE TURNS", for: .normal)
+//        setTurnButton.backgroundColor = .systemPink
         
         view.addSubview(setTurnButton)
         
         // Add button action:
-        setTurnButton.addTarget(self, action: #selector(setTurnButtonAction), for: .touchDown)
+        //setTurnButton.addTarget(self, action: #selector(setTurnButtonAction), for: .touchDown)
         
         // Constraints:
         setTurnButton.translatesAutoresizingMaskIntoConstraints = false
