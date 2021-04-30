@@ -134,7 +134,7 @@ class MainViewController: UIViewController {
     
         
         // Add button action:
-        //setTurnButton.addTarget(self, action: #selector(setTurnButtonAction), for: .touchDown)
+//        setTurnButton.addTarget(self, action: #selector(setTurnButtonAction), for: .touchDown)
         
         // Constraints:
         setTurnButton.translatesAutoresizingMaskIntoConstraints = false
@@ -144,6 +144,8 @@ class MainViewController: UIViewController {
         setTurnButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         self.view = view
+        
+        self.setupChangeTurnsButtonTap()
         
         
         // --------------------------------------------------
@@ -339,7 +341,6 @@ class MainViewController: UIViewController {
     }
     
     
-    
     func timeSelected(time: Int) {
         game_time = time
         player1timeout = time
@@ -348,6 +349,21 @@ class MainViewController: UIViewController {
         updateBothLabels()
     }
     
+    
+    
+    
+    @objc func changeTurnsButtonTapped( sender: UITapGestureRecognizer) {
+        print("Turns Changed!")
+        changeTurns()
+    }
+    
+    
+    func setupChangeTurnsButtonTap() {
+        let setTurnButton = UITapGestureRecognizer(target: self, action: #selector(self.changeTurnsButtonTapped(sender: )))
+        self.setTurnButton.isUserInteractionEnabled = true
+        self.setTurnButton.addGestureRecognizer(setTurnButton)
+        
+    }
     
     
     
@@ -369,8 +385,7 @@ class MainViewController: UIViewController {
     }
     
     
-    @objc
-    func resetButtonAction(sender: UIButton!) {
+    @objc func resetButtonAction(sender: UIButton!) {
         gameState = GameState.stopped
     }
     

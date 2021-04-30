@@ -29,7 +29,6 @@ class SetClockTimeViewController: UIViewController {
         configureStackView()
     }
     
-
     
     func configureStackView() {
         view.addSubview(stackView)
@@ -80,6 +79,7 @@ class SetClockTimeViewController: UIViewController {
         
         setTitleLabelConstraints()
     }
+    
     
     func setTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
