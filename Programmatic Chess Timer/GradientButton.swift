@@ -35,10 +35,10 @@ class GradientButton: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.buttonOuterLayer = createButtonOuterLayer()
+       // self.buttonOuterLayer = createButtonOuterLayer()
         self.buttonInnerLayer = createButtonInnerLayer()
         
-        layer.addSublayer(buttonOuterLayer!)
+       // layer.addSublayer(buttonOuterLayer!)
         layer.addSublayer(buttonInnerLayer!)
         
         
@@ -67,12 +67,12 @@ class GradientButton: UIView {
         
 //        self.backgroundColor = UIColor.systemPink
         
-        if let btn = buttonOuterLayer {
-            btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-            
-            btn.cornerRadius = btn.frame.width / 2
-            
-        }
+//        if let btn = buttonOuterLayer {
+//            btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+//
+//            btn.cornerRadius = btn.frame.width / 2
+//
+//        }
         
         
         if let bto = buttonInnerLayer {
@@ -91,17 +91,17 @@ class GradientButton: UIView {
     
     
     private var innerLayerMargin: CGFloat = 2.0
-    private var outerLayer: CALayer!
+//    private var outerLayer: CALayer!
     private var innerLayer: CALayer!
     
     
-    // Outer Layer:
-    private func createButtonOuterLayer()  -> CALayer {
-        let buttonOuterLayer = CALayer()
-//        buttonOuterLayer.opacity = 0.5
-        buttonOuterLayer.backgroundColor = UIColor.orange.cgColor
-        return buttonOuterLayer
-    } // End function
+//    // Outer Layer:
+//    private func createButtonOuterLayer()  -> CALayer {
+//        let buttonOuterLayer = CALayer()
+////        buttonOuterLayer.opacity = 0.5
+//        buttonOuterLayer.backgroundColor = UIColor.orange.cgColor
+//        return buttonOuterLayer
+//    } // End function
     
     
     // Inner Layer:
@@ -109,6 +109,13 @@ class GradientButton: UIView {
         let buttonInnerLayer = CAGradientLayer()
         buttonInnerLayer.colors = [UIColor.gray.cgColor, UIColor.darkGray.cgColor, UIColor.black.cgColor]
         buttonInnerLayer.locations = [NSNumber(0), NSNumber(0.4), NSNumber(0.5)]
+        
+        buttonInnerLayer.shadowColor = UIColor.systemPink.cgColor
+        //buttonInnerLayer.shadowOffset = CGSize(width: 5, height: 5)
+        buttonInnerLayer.shadowRadius = 5
+        buttonInnerLayer.shadowOpacity = 1.0
+        
+        
         
         return buttonInnerLayer
     } // End function
