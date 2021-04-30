@@ -291,7 +291,7 @@ class MainViewController: UIViewController {
     
     func changeTurns() {
         turn = turn == 1 ? 2:1
-        textBackgroundChangeColor()
+        
     }
     
     
@@ -356,6 +356,7 @@ class MainViewController: UIViewController {
     @objc func changeTurnsButtonTapped( sender: UITapGestureRecognizer) {
         print("Turns Changed!")
         changeTurns()
+        textBackgroundChangeColor()
     }
     
     
