@@ -291,6 +291,7 @@ class MainViewController: UIViewController {
     
     func changeTurns() {
         turn = turn == 1 ? 2:1
+        textBackgroundChangeColor()
     }
     
     
