@@ -85,6 +85,7 @@ class MainViewController: UIViewController {
     
     
     // ------------------------------------------------------
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +100,7 @@ class MainViewController: UIViewController {
         
         view.layer.addSublayer(gradientBlock)
         gradientBlock.frame = view.bounds
+    
         
         // --------------------------------------------------
         // Create Middle Buttons:
@@ -129,6 +131,7 @@ class MainViewController: UIViewController {
 //        setTurnButton.backgroundColor = .systemPink
         
         view.addSubview(setTurnButton)
+    
         
         // Add button action:
         //setTurnButton.addTarget(self, action: #selector(setTurnButtonAction), for: .touchDown)
@@ -137,6 +140,8 @@ class MainViewController: UIViewController {
         setTurnButton.translatesAutoresizingMaskIntoConstraints = false
         setTurnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setTurnButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        setTurnButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        setTurnButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         self.view = view
         
@@ -150,6 +155,10 @@ class MainViewController: UIViewController {
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(resetButton)
+        
+        // setTurnButton.trailingAnchor.constraint(equalTo: resetButton.leadingAnchor).isActive = true
+
+        
         
         // Add button action:
         resetButton.addTarget(self, action: #selector(resetButtonAction), for: .touchDown)
@@ -207,16 +216,17 @@ class MainViewController: UIViewController {
     }
     // End viewDidLoad()
     
+    
     // ------------------------------------------------------
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        gradientBlock.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.size.height / 1.85)
+        gradientBlock.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.size.height / 2)
     }
     
-    
     // ------------------------------------------------------
+    
     
     // Timer:
     // Format the timers:
