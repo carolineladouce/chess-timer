@@ -107,13 +107,13 @@ class GradientButton: UIView {
     // Inner Layer:
     private func createButtonInnerLayer() -> CALayer {
         let buttonInnerLayer = CAGradientLayer()
-        buttonInnerLayer.colors = [UIColor.gray.cgColor, UIColor.darkGray.cgColor, UIColor.black.cgColor]
-        buttonInnerLayer.locations = [NSNumber(0), NSNumber(0.4), NSNumber(0.5)]
+        buttonInnerLayer.colors = [UIColor.lightGray.cgColor, UIColor.white.cgColor]
+        buttonInnerLayer.locations = [NSNumber(0), NSNumber(0.9)]
         
         buttonInnerLayer.shadowColor = UIColor.systemPink.cgColor
         //buttonInnerLayer.shadowOffset = CGSize(width: 5, height: 5)
         buttonInnerLayer.shadowRadius = 5
-        buttonInnerLayer.shadowOpacity = 1.0
+        buttonInnerLayer.shadowOpacity = 5
         
         
         

@@ -77,8 +77,8 @@ class MainViewController: UIViewController {
     let gradientBlock: CAGradientLayer = {
         let layer = CAGradientLayer()
         layer.colors = [
-            UIColor.purple.cgColor,
-            UIColor.systemTeal.cgColor
+            UIColor.orange.cgColor,
+            UIColor.systemPink.cgColor
         ]
         return layer
     }()
@@ -224,7 +224,13 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        gradientBlock.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.size.height / 2)
+        gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+        
+        gradientBlock.shadowColor = UIColor.black.cgColor
+        //buttonInnerLayer.shadowOffset = CGSize(width: 5, height: 5)
+        gradientBlock.shadowRadius = 10
+        gradientBlock.shadowOpacity = 1.0
+        gradientBlock.cornerRadius = 15
     }
     
     // ------------------------------------------------------
@@ -357,7 +363,35 @@ class MainViewController: UIViewController {
         print("Turns Changed!")
         changeTurns()
         textBackgroundChangeColor()
-    }
+        
+        
+//        UIView.animate(withDuration: 0.3) {
+//          setTurnButton.translate = CGAffineTransform(rotationAngle: CGFloat.pi)
+//        }
+        
+//        UIView.animate(withDuration: 0.3, animations: ) {
+//            let rotation: CGAffineTransform
+//            let maskPosition: CGFloat
+//
+//            if self.turn == 1 {
+//                rotation = CGAffineTransform(rotationAngle: 0)
+//                maskPosition = 0.0
+//            } else {
+//                rotation = CGAffineTransform(rotationAngle: CGFloat.pi)
+//                maskPosition = 0.5
+//            }
+//
+//
+//            setTurnButton.translate = rotation
+//            resetButton.translate = rotation
+//            startPauseButton.translate = rotation
+//
+//            backgroundMaskConstraint.multiplier = maskPosition
+
+
+
+//        } // End UIView.animate
+    } // End
     
     
     func setupChangeTurnsButtonTap() {
