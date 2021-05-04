@@ -371,21 +371,40 @@ class MainViewController: UIViewController {
         
         UIView.animate(withDuration: 0.3) {
             self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
+            
+//            self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
         }
         
+        if self.turn == 1 {
+            self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+        } else {
+            self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+        }
+        
+        
+        
+        
+        
+        
 //        UIView.animate(withDuration: 0.3, animations: ) {
-            let rotation: CGAffineTransform
-            let maskPosition: CGFloat
-
-            if self.turn == 1 {
-                rotation = CGAffineTransform(rotationAngle: 0)
-                maskPosition = 0.0
-                
-                
-            } else {
-                rotation = CGAffineTransform(rotationAngle: CGFloat.pi)
-                maskPosition = 0.5
-            }
+//            let rotation: CGAffineTransform
+//            let maskPosition: CGFloat
+//
+//            if self.turn == 1 {
+//                rotation = CGAffineTransform(rotationAngle: 0)
+//                maskPosition = 0.0
+//
+//
+//            } else {
+//                rotation = CGAffineTransform(rotationAngle: CGFloat.pi)
+//                maskPosition = 0.5
+//            }
+//
+        
+//        gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+        
+        
+        
 
 
 //            setTurnButton.transform = rotation
