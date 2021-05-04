@@ -76,10 +76,14 @@ class MainViewController: UIViewController {
     // Add gradient block:
     let gradientBlock: CAGradientLayer = {
         let layer = CAGradientLayer()
+        layer.type = .axial
+        
         layer.colors = [
-            UIColor.orange.cgColor,
-            UIColor.systemPink.cgColor
-        ]
+            UIColor.green.cgColor,
+            UIColor.systemBlue.cgColor ]
+        
+        layer.locations = [0, 1.25]
+        
         return layer
     }()
     
@@ -365,27 +369,29 @@ class MainViewController: UIViewController {
         textBackgroundChangeColor()
         
         
-//        UIView.animate(withDuration: 0.3) {
-//          setTurnButton.translate = CGAffineTransform(rotationAngle: CGFloat.pi)
-//        }
+        UIView.animate(withDuration: 0.3) {
+            self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
+        }
         
 //        UIView.animate(withDuration: 0.3, animations: ) {
-//            let rotation: CGAffineTransform
-//            let maskPosition: CGFloat
-//
-//            if self.turn == 1 {
-//                rotation = CGAffineTransform(rotationAngle: 0)
-//                maskPosition = 0.0
-//            } else {
-//                rotation = CGAffineTransform(rotationAngle: CGFloat.pi)
-//                maskPosition = 0.5
-//            }
-//
-//
-//            setTurnButton.translate = rotation
-//            resetButton.translate = rotation
-//            startPauseButton.translate = rotation
-//
+            let rotation: CGAffineTransform
+            let maskPosition: CGFloat
+
+            if self.turn == 1 {
+                rotation = CGAffineTransform(rotationAngle: 0)
+                maskPosition = 0.0
+                
+                
+            } else {
+                rotation = CGAffineTransform(rotationAngle: CGFloat.pi)
+                maskPosition = 0.5
+            }
+
+
+//            setTurnButton.transform = rotation
+//            resetButton.transform = rotation
+//            startPauseButton.transform = rotation
+
 //            backgroundMaskConstraint.multiplier = maskPosition
 
 
