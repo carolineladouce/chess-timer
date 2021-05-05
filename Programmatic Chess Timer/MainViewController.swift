@@ -386,7 +386,17 @@ class MainViewController: UIViewController {
             self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
             }
 
-//        } // End UIView.animate
+        
+        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
+        gradientChangeAnimation.duration = 5.0
+        gradientChangeAnimation.toValue = [
+            UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor,
+            UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor]
+        
+        gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+        gradientChangeAnimation.isRemovedOnCompletion = false
+        gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
+
     } // End
     
     
