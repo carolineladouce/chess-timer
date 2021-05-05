@@ -114,7 +114,8 @@ class MainViewController: UIViewController {
         
         // Start/Pause Button:
         startPauseButton.setTitle("start", for: .normal)
-//        startPauseButton.backgroundColor = .blue
+        startPauseButton.setTitleColor(.darkGray, for: .normal)
+        startPauseButton.setTitleColor(.orange, for: .highlighted)
         startPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
         startPauseButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -134,9 +135,7 @@ class MainViewController: UIViewController {
         
         // --------------------------------------------------
         // Switch-turns button:
-//        setTurnButton.setTitle("CHANGE TURNS", for: .normal)
-//        setTurnButton.backgroundColor = .systemPink
-        
+
         view.addSubview(setTurnButton)
     
         
@@ -158,9 +157,9 @@ class MainViewController: UIViewController {
         // --------------------------------------------------
         // Reset Button:
         resetButton.setTitle("reset", for: .normal)
+        resetButton.setTitleColor(.darkGray, for: .normal)
+        resetButton.setTitleColor(.orange, for: .highlighted)
         resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
-        //resetButton.setTitleColor(.gray, for: .normal)
-//        resetButton.backgroundColor = .orange
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(resetButton)
