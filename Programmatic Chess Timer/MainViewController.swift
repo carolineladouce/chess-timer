@@ -79,8 +79,11 @@ class MainViewController: UIViewController {
         layer.type = .axial
         
         layer.colors = [
-            UIColor.green.cgColor,
-            UIColor.systemBlue.cgColor]
+//            UIColor.green.cgColor,
+//            UIColor.systemBlue.cgColor
+            UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+            UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+        ]
         
         layer.locations = [0, 1.25]
 
@@ -388,11 +391,18 @@ class MainViewController: UIViewController {
 
         
         let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-        gradientChangeAnimation.duration = 5.0
-        gradientChangeAnimation.toValue = [
-            UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor,
-            UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor]
-        
+        gradientChangeAnimation.duration = 1.0
+        if self.turn == 1 {
+            gradientChangeAnimation.toValue = [
+                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
+                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor
+            ]
+        } else {
+            gradientChangeAnimation.toValue = [
+                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor,
+                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor
+            ]
+        }
         gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
         gradientChangeAnimation.isRemovedOnCompletion = false
         gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
