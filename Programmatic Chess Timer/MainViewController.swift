@@ -125,7 +125,7 @@ class MainViewController: UIViewController {
         
         // Constraints:
         NSLayoutConstraint.activate([
-            startPauseButton.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor),
+            startPauseButton.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor, constant: 20),
         ])
         startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
         
@@ -174,7 +174,7 @@ class MainViewController: UIViewController {
         
         // Constraints:
         NSLayoutConstraint.activate([
-            resetButton.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor)
+            resetButton.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor, constant: -20)
         ])
         resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
         
