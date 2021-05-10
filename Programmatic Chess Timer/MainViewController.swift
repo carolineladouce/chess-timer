@@ -383,6 +383,13 @@ class MainViewController: UIViewController {
         textBackgroundChangeColor()
         print("turn is: \(turn)")
         
+        UIView.animate(withDuration: 0.3) {
+                    self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
+        
+                    self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+                    self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+                }
+        
         
         if turn == 1 {
             print("Block should be on bottom")
