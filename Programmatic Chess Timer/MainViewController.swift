@@ -232,7 +232,15 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+//        gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+        
+        if turn == 1 {
+            self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+            
+        } else {
+            self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+        }
+        
         
         gradientBlock.shadowColor = UIColor.black.cgColor
         //buttonInnerLayer.shadowOffset = CGSize(width: 5, height: 5)
@@ -316,7 +324,7 @@ class MainViewController: UIViewController {
             
             //player2clock.backgroundColor = UIColor.black
             player2clock.textColor = UIColor.white
-        } else if turn == 2 {
+        } else {
             //player2clock.backgroundColor = UIColor.green
             player2clock.textColor = UIColor.darkGray
             
@@ -371,49 +379,68 @@ class MainViewController: UIViewController {
     
     
     @objc func changeTurnsButtonTapped( sender: UITapGestureRecognizer) {
-        print("Turns Changed!")
         changeTurns()
         textBackgroundChangeColor()
+        print("turn is: \(turn)")
         
         
-        UIView.animate(withDuration: 0.3) {
-            self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
+        if turn == 1 {
+            print("Block should be on bottom")
             
-            self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-            self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-            
-            
-        }
-        
-        if self.turn == 1 {
             self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
-        } else {
-            self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
-            }
 
-        
-        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-        gradientChangeAnimation.duration = 1.0
-        if self.turn == 1 {
-            gradientChangeAnimation.toValue = [
-                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
-                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor
-            ]
         } else {
-            gradientChangeAnimation.toValue = [
-                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor,
-                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor
-            ]
+            print("Block should be on top")
+
+            self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
         }
-        gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
-        gradientChangeAnimation.isRemovedOnCompletion = false
-        gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
+        
+        
+        
+    } // End
+        
+        
+//        print("Turns Changed!")
+//        textBackgroundChangeColor()
+//
+//
+//        UIView.animate(withDuration: 0.3) {
+//            self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
+//
+//            self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+//            self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+//        }
+//
+//
+//        if self.turn == 1 {
+//            self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+//        } else {
+//            self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+//            }
+//
+//
+//        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
+//        gradientChangeAnimation.duration = 1.0
+//        if self.turn == 1 {
+//            gradientChangeAnimation.toValue = [
+//                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
+//                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor
+//            ]
+//        } else {
+//            gradientChangeAnimation.toValue = [
+//                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor,
+//                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor
+//            ]
+//        }
+//        gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+//        gradientChangeAnimation.isRemovedOnCompletion = false
+//        gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
         
         
        
         
 
-    } // End
+    
     
     
     func setupChangeTurnsButtonTap() {
