@@ -185,6 +185,7 @@ class MainViewController: UIViewController {
         
         // Top Label/ player1clock:
         player1clock.text = "0"
+        player1clock.textColor = .white
         player1clock.font = UIFont.systemFont(ofSize: 96)
         player1clock.translatesAutoresizingMaskIntoConstraints = false
         
@@ -203,6 +204,7 @@ class MainViewController: UIViewController {
         // --------------------------------------------------
         // Create Bottom Label/ player2clock:
         player2clock.text = "0"
+        player2clock.textColor = .darkGray
         player2clock.font = UIFont.systemFont(ofSize: 96)
         player2clock.translatesAutoresizingMaskIntoConstraints = false
         
@@ -309,16 +311,16 @@ class MainViewController: UIViewController {
     
     func textBackgroundChangeColor() {
         if turn == 1 {
-            player1clock.backgroundColor = UIColor.green
-            player1clock.textColor = UIColor.black
+            //player1clock.backgroundColor = UIColor.green
+            player1clock.textColor = UIColor.darkGray
             
-            player2clock.backgroundColor = UIColor.black
+            //player2clock.backgroundColor = UIColor.black
             player2clock.textColor = UIColor.white
         } else if turn == 2 {
-            player2clock.backgroundColor = UIColor.green
-            player2clock.textColor = UIColor.black
+            //player2clock.backgroundColor = UIColor.green
+            player2clock.textColor = UIColor.darkGray
             
-            player1clock.backgroundColor = UIColor.black
+            //player1clock.backgroundColor = UIColor.black
             player1clock.textColor = UIColor.white
         }
     }
@@ -380,6 +382,7 @@ class MainViewController: UIViewController {
             self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
             self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
             
+            
         }
         
         if self.turn == 1 {
@@ -405,6 +408,10 @@ class MainViewController: UIViewController {
         gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
         gradientChangeAnimation.isRemovedOnCompletion = false
         gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
+        
+        
+       
+        
 
     } // End
     
