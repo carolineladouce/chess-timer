@@ -403,6 +403,23 @@ class MainViewController: UIViewController {
         }
         
         
+        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
+                gradientChangeAnimation.duration = 1.0
+                if self.turn == 1 {
+                    gradientChangeAnimation.toValue = [
+                        UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
+                        UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor
+                    ]
+                } else {
+                    gradientChangeAnimation.toValue = [
+                        UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor,
+                        UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor
+                    ]
+                }
+                gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+                gradientChangeAnimation.isRemovedOnCompletion = false
+                gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
+        
         
     } // End
         
