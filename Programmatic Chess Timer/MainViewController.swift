@@ -127,8 +127,19 @@ class MainViewController: UIViewController {
         // Constraints:
         NSLayoutConstraint.activate([
             startPauseButton.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor, constant: 20),
+            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
         ])
-        startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
+        
+//        if turn == 1 {
+//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = false
+//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = true
+//        } else {
+//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = false
+//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
+//        }
+//
+        
+        
         
         self.view = view
         
@@ -175,7 +186,12 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             resetButton.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor, constant: -20)
         ])
-        resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
+        if turn == 2 {
+            resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
+        } else {
+            resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = false
+        }
+        
         
         self.view = view
         
@@ -232,11 +248,8 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
-        
         if turn == 1 {
             self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
-            
         } else {
             self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
         }
@@ -383,12 +396,26 @@ class MainViewController: UIViewController {
         textBackgroundChangeColor()
         print("turn is: \(turn)")
         
-        UIView.animate(withDuration: 0.3) {
-                    self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
+        UIView.animate(withDuration: 0.3) { [self] in
+            self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
         
-                    self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-                    self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-                }
+            self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+            self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+            
+//            self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = false
+//            self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = true
+//            self.view.layoutIfNeeded()
+            
+//            if turn == 1 {
+//                self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = true
+//            } else {
+//                self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
+//            }
+            
+            
+        } // End UIView.animate
+        
+        
         
         
         if turn == 1 {
@@ -404,8 +431,8 @@ class MainViewController: UIViewController {
         
         
         let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-                gradientChangeAnimation.duration = 1.0
-                if self.turn == 1 {
+        gradientChangeAnimation.duration = 0.4
+            if self.turn == 1 {
                     gradientChangeAnimation.toValue = [
                         UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
                         UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor
