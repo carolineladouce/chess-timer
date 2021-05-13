@@ -445,20 +445,42 @@ class MainViewController: UIViewController {
         }
         
         
-        
-        
-        
+        let animateStartButton = startPauseButton
+        let animateResetButton = resetButton
+       
         
         
         if turn == 1 {
             print("Block should be on bottom")
             
+            UIView.animate(withDuration: 0.5) {
+                animateStartButton.alpha = 0
+                animateResetButton.alpha = 0
+            }
+            
             self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
-
+            
+            UIView.animate(withDuration: 0.5) {
+                animateStartButton.alpha = 10
+                animateResetButton.alpha = 10
+            }
+            
         } else {
             print("Block should be on top")
+            
+            UIView.animate(withDuration: 0.5) {
+                animateStartButton.alpha = 0
+                animateResetButton.alpha = 0
+            }
 
             self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+            
+            UIView.animate(withDuration: 0.5) {
+                animateStartButton.alpha = 10
+                animateResetButton.alpha = 10
+            }
+            
+            
         }
         
         
