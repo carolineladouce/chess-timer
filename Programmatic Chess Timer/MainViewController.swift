@@ -66,6 +66,9 @@ class MainViewController: UIViewController {
     var timer: Timer?
     
     let startPauseButton = UIButton(type: .system)
+    var startPauseButtonYAnchor: NSLayoutConstraint!
+    var startPauseButtonLeading: NSLayoutConstraint!
+    
     let setTurnButton = GradientButton() // UIButton(type: .system)
     let resetButton = UIButton(type: .system)
     
@@ -124,10 +127,14 @@ class MainViewController: UIViewController {
         // Add button action:
         startPauseButton.addTarget(self, action: #selector(startPauseButtonAction), for: .touchDown)
         
+        
+        startPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
+        startPauseButtonLeading = startPauseButton.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor, constant: 20)
+        
         // Constraints:
         NSLayoutConstraint.activate([
-            startPauseButton.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor, constant: 20),
-            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
+            startPauseButtonYAnchor,
+            startPauseButtonLeading
         ])
         
 //        if turn == 1 {
@@ -402,18 +409,34 @@ class MainViewController: UIViewController {
             self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
             self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
             
-//            self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = false
-//            self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = true
-//            self.view.layoutIfNeeded()
-            
-//            if turn == 1 {
-//                self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = true
-//            } else {
-//                self.startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
-//            }
-            
-            
         } // End UIView.animate
+        
+        
+        NSLayoutConstraint.deactivate([
+            startPauseButtonYAnchor
+        ])
+        
+        var altStartPauseButtonYAnchor: NSLayoutConstraint
+        
+        if startPauseButtonYAnchor.constant == 30 {
+            altStartPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -35)
+        } else {
+            altStartPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 30)
+        }
+        
+        
+        NSLayoutConstraint.activate([
+//            startPauseButtonYAnchor,
+            altStartPauseButtonYAnchor
+        ])
+        
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+            self.startPauseButtonYAnchor = altStartPauseButtonYAnchor
+        }
+        
+        
+        
         
         
         
@@ -448,7 +471,7 @@ class MainViewController: UIViewController {
                 gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
         
         
-    } // End
+    } // End func changeTurnsButtonTapped
         
         
 //        print("Turns Changed!")
