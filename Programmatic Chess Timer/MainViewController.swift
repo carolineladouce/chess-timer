@@ -70,7 +70,10 @@ class MainViewController: UIViewController {
     var startPauseButtonLeading: NSLayoutConstraint!
     
     let setTurnButton = GradientButton() // UIButton(type: .system)
+    
     let resetButton = UIButton(type: .system)
+    var resetButtonYAnchor: NSLayoutConstraint!
+    var resetButtonTrailing: NSLayoutConstraint!
     
     var player1clock = UILabel()
     var player2clock = UILabel()
@@ -182,22 +185,20 @@ class MainViewController: UIViewController {
         
         view.addSubview(resetButton)
         
-        // setTurnButton.trailingAnchor.constraint(equalTo: resetButton.leadingAnchor).isActive = true
-
-        
-        
         // Add button action:
         resetButton.addTarget(self, action: #selector(resetButtonAction), for: .touchDown)
         
+        
+        resetButtonYAnchor = resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
+        resetButtonTrailing = resetButton.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor, constant: -20)
+        
+        
         // Constraints:
         NSLayoutConstraint.activate([
-            resetButton.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor, constant: -20)
+            resetButtonYAnchor,
+            resetButtonTrailing
         ])
-        if turn == 2 {
-            resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
-        } else {
-            resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = false
-        }
+        
         
         
         self.view = view
@@ -412,27 +413,35 @@ class MainViewController: UIViewController {
         } // End UIView.animate
         
         
+        // Alter the start/pause and reset button constraints:
+        
         NSLayoutConstraint.deactivate([
-            startPauseButtonYAnchor
+            startPauseButtonYAnchor,
+            resetButtonYAnchor
         ])
         
         var altStartPauseButtonYAnchor: NSLayoutConstraint
+        var altResetButtonYAnchor: NSLayoutConstraint
         
-        if startPauseButtonYAnchor.constant == 30 {
+        if startPauseButtonYAnchor.constant == 30 && resetButtonYAnchor.constant == 30 {
             altStartPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -35)
+            altResetButtonYAnchor = resetButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -35)
         } else {
             altStartPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 30)
+            altResetButtonYAnchor = resetButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 30)
         }
         
         
         NSLayoutConstraint.activate([
 //            startPauseButtonYAnchor,
-            altStartPauseButtonYAnchor
+            altStartPauseButtonYAnchor,
+            altResetButtonYAnchor
         ])
         
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
             self.startPauseButtonYAnchor = altStartPauseButtonYAnchor
+            self.resetButtonYAnchor = altResetButtonYAnchor
         }
         
         
