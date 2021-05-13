@@ -437,7 +437,7 @@ class MainViewController: UIViewController {
             altResetButtonYAnchor
         ])
         
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.4, delay: 0.1, usingSpringWithDamping: 0.65, initialSpringVelocity: 0) {
             self.view.layoutIfNeeded()
             self.startPauseButtonYAnchor = altStartPauseButtonYAnchor
             self.resetButtonYAnchor = altResetButtonYAnchor
