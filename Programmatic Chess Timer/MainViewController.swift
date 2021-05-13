@@ -407,9 +407,8 @@ class MainViewController: UIViewController {
         UIView.animate(withDuration: 0.3) { [self] in
             self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
         
-            self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-            self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-            
+//            self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+//            self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
         } // End UIView.animate
         
         
@@ -447,8 +446,6 @@ class MainViewController: UIViewController {
         
         let animateStartButton = startPauseButton
         let animateResetButton = resetButton
-       
-        
         
         if turn == 1 {
             print("Block should be on bottom")
@@ -459,6 +456,9 @@ class MainViewController: UIViewController {
             }
             
             self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+            
+            self.startPauseButton.transform = CGAffineTransform(rotationAngle: .pi)
+            self.resetButton.transform = CGAffineTransform(rotationAngle: .pi)
             
             UIView.animate(withDuration: 0.5) {
                 animateStartButton.alpha = 10
@@ -474,6 +474,9 @@ class MainViewController: UIViewController {
             }
 
             self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+            
+            self.startPauseButton.transform = CGAffineTransform(rotationAngle: 0)
+            self.resetButton.transform = CGAffineTransform(rotationAngle: 0)
             
             UIView.animate(withDuration: 0.5) {
                 animateStartButton.alpha = 10
@@ -504,48 +507,7 @@ class MainViewController: UIViewController {
         
     } // End func changeTurnsButtonTapped
         
-        
-//        print("Turns Changed!")
-//        textBackgroundChangeColor()
-//
-//
-//        UIView.animate(withDuration: 0.3) {
-//            self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
-//
-//            self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-//            self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-//        }
-//
-//
-//        if self.turn == 1 {
-//            self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
-//        } else {
-//            self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
-//            }
-//
-//
-//        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-//        gradientChangeAnimation.duration = 1.0
-//        if self.turn == 1 {
-//            gradientChangeAnimation.toValue = [
-//                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
-//                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor
-//            ]
-//        } else {
-//            gradientChangeAnimation.toValue = [
-//                UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor,
-//                UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor
-//            ]
-//        }
-//        gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
-//        gradientChangeAnimation.isRemovedOnCompletion = false
-//        gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
-        
-        
-       
-        
 
-    
     
     
     func setupChangeTurnsButtonTap() {
