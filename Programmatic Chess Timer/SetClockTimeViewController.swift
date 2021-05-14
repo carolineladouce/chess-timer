@@ -15,6 +15,23 @@ class TimerButtonTapGestureRecognizer: UITapGestureRecognizer {
 class SetClockTimeViewController: UIViewController {
    public var mainViewController: MainViewController?
     
+    var gradientLayer: CAGradientLayer = {
+        var layer = CAGradientLayer()
+        layer.type = .axial
+        
+        layer.colors = [
+            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor,
+            UIColor(red: 194/255, green: 194/255, blue: 194/255, alpha: 1).cgColor
+        ]
+        
+        layer.locations = [0, 0.75]
+        
+        
+
+        return layer
+    }()
+    
+    
     /// in seconds
     let times: [Int] = [1,2,3,5,10]
     var butttons: [TimerStackSection] = []
@@ -25,6 +42,13 @@ class SetClockTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        let marginsGuide = view.layoutMarginsGuide
+        
+        
+        view.layer.addSublayer(gradientLayer)
+        gradientLayer.frame = view.bounds
+    
         configureTitleLabel()
         configureStackView()
     }

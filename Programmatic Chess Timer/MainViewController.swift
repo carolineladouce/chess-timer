@@ -85,8 +85,6 @@ class MainViewController: UIViewController {
         layer.type = .axial
         
         layer.colors = [
-//            UIColor.green.cgColor,
-//            UIColor.systemBlue.cgColor
             UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
             UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
         ]
@@ -140,17 +138,7 @@ class MainViewController: UIViewController {
             startPauseButtonLeading
         ])
         
-//        if turn == 1 {
-//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = false
-//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = true
-//        } else {
-//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 60).isActive = false
-//            startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
-//        }
-//
-        
-        
-        
+
         self.view = view
         
         
@@ -159,10 +147,6 @@ class MainViewController: UIViewController {
 
         view.addSubview(setTurnButton)
     
-        
-        // Add button action:
-//        setTurnButton.addTarget(self, action: #selector(setTurnButtonAction), for: .touchDown)
-        
         // Constraints:
         setTurnButton.translatesAutoresizingMaskIntoConstraints = false
         setTurnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -432,7 +416,6 @@ class MainViewController: UIViewController {
         
         
         NSLayoutConstraint.activate([
-//            startPauseButtonYAnchor,
             altStartPauseButtonYAnchor,
             altResetButtonYAnchor
         ])
