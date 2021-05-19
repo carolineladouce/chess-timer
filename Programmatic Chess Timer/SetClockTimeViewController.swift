@@ -15,39 +15,36 @@ class TimerButtonTapGestureRecognizer: UITapGestureRecognizer {
 class SetClockTimeViewController: UIViewController {
    public var mainViewController: MainViewController?
     
-    var gradientLayer: CAGradientLayer = {
-        var layer = CAGradientLayer()
-        layer.type = .axial
-        
-        layer.colors = [
-            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor,
-            UIColor(red: 194/255, green: 194/255, blue: 194/255, alpha: 1).cgColor
-        ]
-        
-        layer.locations = [0, 0.75]
-        
-        
-
-        return layer
-    }()
+//    var gradientLayer: CAGradientLayer = {
+//        var layer = CAGradientLayer()
+//        layer.type = .axial
+//
+//        layer.colors = [
+//            UIColor(red: 228/255, green: 227/255, blue: 227/255, alpha: 1).cgColor,
+//            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
+//        ]
+//
+//        layer.locations = [0, 0.75]
+//
+//
+//
+//        return layer
+//    }()
     
     
     /// in seconds
     let times: [Int] = [1,2,3,5,10]
-    var butttons: [TimerStackSection] = []
+    var buttons: [TimerStackSection] = []
 
     var stackView = UIStackView()
     var titleLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        let marginsGuide = view.layoutMarginsGuide
-        
-        
-        view.layer.addSublayer(gradientLayer)
-        gradientLayer.frame = view.bounds
+        view.backgroundColor = UIColor(red: 244/255, green: 243/255, blue: 243/255, alpha: 1)
+
+//        view.layer.addSublayer(gradientLayer)
+//        gradientLayer.frame = view.bounds
     
         configureTitleLabel()
         configureStackView()
@@ -79,7 +76,7 @@ class SetClockTimeViewController: UIViewController {
             button.isUserInteractionEnabled = true
             button.addGestureRecognizer(gr)
             stackView.addArrangedSubview(button)
-            self.butttons.append(button)
+            self.buttons.append(button)
         }
     }
     
@@ -95,8 +92,9 @@ class SetClockTimeViewController: UIViewController {
     
     func configureTitleLabel() {
         view.addSubview(titleLabel)
-        titleLabel.text = "Set Timer:"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.text = "Set timer ⏱"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
+        titleLabel.textColor = UIColor.systemPink
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
