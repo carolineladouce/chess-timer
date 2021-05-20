@@ -194,7 +194,7 @@ class MainViewController: UIViewController {
         // Top Label/ player1clock:
         player1clock.text = "0"
         player1clock.textColor = .white
-        player1clock.font = UIFont.systemFont(ofSize: 96)
+        player1clock.font = UIFont.boldSystemFont(ofSize: 96)
         player1clock.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(player1clock)
@@ -213,7 +213,7 @@ class MainViewController: UIViewController {
         // Create Bottom Label/ player2clock:
         player2clock.text = "0"
         player2clock.textColor = .darkGray
-        player2clock.font = UIFont.systemFont(ofSize: 96)
+        player2clock.font = UIFont.boldSystemFont(ofSize: 96)
         player2clock.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(player2clock)
