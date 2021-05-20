@@ -39,6 +39,25 @@ class SetClockTimeViewController: UIViewController {
     var stackView = UIStackView()
     var titleLabel = UILabel()
     
+//    var titleGradient: CAGradientLayer = {
+//        var gradientLayer = CAGradientLayer()
+//        gradientLayer.type = .axial
+//
+//        gradientLayer.colors = [
+//            UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+//            UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+//        ]
+//
+//        gradientLayer.locations = [0, 0.5]
+//
+//        return gradientLayer
+//
+//    }()
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 244/255, green: 243/255, blue: 243/255, alpha: 1)
@@ -48,6 +67,11 @@ class SetClockTimeViewController: UIViewController {
     
         configureTitleLabel()
         configureStackView()
+        
+//        view.layer.addSublayer(titleGradient)
+//        titleGradient.frame = view.bounds
+//        view.mask = titleLabel
+    
     }
     
     
@@ -72,6 +96,7 @@ class SetClockTimeViewController: UIViewController {
             gr.time = i*60
             
             button.setTitle("\(i)", for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 54)
             
             button.isUserInteractionEnabled = true
             button.addGestureRecognizer(gr)
@@ -94,12 +119,13 @@ class SetClockTimeViewController: UIViewController {
         view.addSubview(titleLabel)
         titleLabel.text = "Set timer ⏱"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
-        titleLabel.textColor = UIColor.systemPink
+        titleLabel.textColor = UIColor(red: 19/255, green: 19/255, blue: 19/255, alpha: 1)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
         
         setTitleLabelConstraints()
+        
     }
     
     
