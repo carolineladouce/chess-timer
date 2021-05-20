@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
                 updateBothLabels()
                 
                 // Start/Pause, Set Turns, and Reset buttons:
-                startPauseButton.setTitle("START", for: UIControl.State.normal)
+                startPauseButton.setTitle("start", for: UIControl.State.normal)
             }
             if newValue == .running {
                 // Timers:
@@ -40,14 +40,14 @@ class MainViewController: UIViewController {
                 textBackgroundChangeColor()
                 
                 // Start/Pause, Set Turns, and Reset buttons:
-                startPauseButton.setTitle("PAUSE", for: UIControl.State.normal)
+                startPauseButton.setTitle("pause", for: UIControl.State.normal)
             }
             if newValue == .paused {
                 // Timers:
                 clearTimer()
                 
                 // Start/Pause, Set Turns, and Reset buttons:
-                startPauseButton.setTitle("CONTINUE", for: UIControl.State.normal)
+                startPauseButton.setTitle("cont...", for: UIControl.State.normal)
             }
             if newValue == .ended {
                 // Timers:
