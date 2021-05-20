@@ -262,8 +262,20 @@ class MainViewController: UIViewController {
     func formatTimer(time: TimeInterval) -> String {
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
-        return String(format: "%02i:%02i", minutes, seconds)
-    }
+        
+        if minutes < 10 {
+            return String(format: "%i:%02i", minutes, seconds)
+        } else {
+            return String(format: "%02i:%02i", minutes, seconds)
+        }
+        
+        
+    } // End formatTimer
+    
+    
+     
+    
+    
     
     
     // Update timer/current player clock and label every second (while game .running)
