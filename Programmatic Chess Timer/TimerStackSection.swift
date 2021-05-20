@@ -34,7 +34,7 @@ class TimerStackSection: UIButton {
         titleLabel?.font = UIFont(name: "TITLE", size: 32)
         layer.cornerRadius = 10
         layer.shadowColor = UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1).cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.shadowOffset = CGSize(width: 2, height: 5)
         layer.shadowRadius = 5
         layer.shadowOpacity = 1.0
         
