@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
                 
                 // Start/Pause, Set Turns, and Reset buttons:
                 startPauseButton.setTitle("start", for: UIControl.State.normal)
+                startPauseButton.setTitleColor(UIColor.darkGray, for: .normal)
             }
             if newValue == .running {
                 // Timers:
@@ -41,6 +42,7 @@ class MainViewController: UIViewController {
                 
                 // Start/Pause, Set Turns, and Reset buttons:
                 startPauseButton.setTitle("pause", for: UIControl.State.normal)
+                startPauseButton.setTitleColor(UIColor.darkGray, for: .normal)
             }
             if newValue == .paused {
                 // Timers:
@@ -48,13 +50,56 @@ class MainViewController: UIViewController {
                 
                 // Start/Pause, Set Turns, and Reset buttons:
                 startPauseButton.setTitle("cont...", for: UIControl.State.normal)
+                
+                self.startPauseButton.setTitleColor(UIColor.systemPurple, for: .normal)
+                
+                // Purple mode
+                self.gradientBlock.colors =  [
+                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+                ]
+                
+                
+                //continueBlink()
+//
+//                while newValue == .paused {
+//                    startPauseButton.setTitleColor(.systemPurple, for: .normal)
+//
+//
+//                    if startPauseButton.titleColor(for: .normal) == UIColor.systemPurple {
+//                        UIView.animate(withDuration: 1) {
+//                            //self.startPauseButton.alpha = 10
+//                            self.startPauseButton.setTitleColor(.systemPink, for: .normal)
+//                        }
+//                    } else if startPauseButton.titleColor(for: .normal) == UIColor.systemPink {
+//                        UIView.animate(withDuration: 1) {
+//                            //self.startPauseButton.alpha = 0
+//                            self.startPauseButton.setTitleColor(.systemPurple, for: .normal)
+//                        }
+//                    }
+                    
+                    
+                    
+                  
+                    
+                //} // end while loop
+                
+                
+                // Animate startPauseButton:
+              
+                
+                
+              
+                
+                //self.startPauseButton.setTitleColor(.systemPurple, for: .normal)
             }
             if newValue == .ended {
                 // Timers:
                 clearTimer()
                 
                 // Start/Pause, Set Turns, and Reset buttons:
-                startPauseButton.setTitle("GAME ENDED", for: UIControl.State.normal)
+                startPauseButton.setTitle("END", for: UIControl.State.normal)
+                startPauseButton.setTitleColor(UIColor.darkGray, for: .normal)
             }
         }
     } // End gameState
@@ -68,6 +113,7 @@ class MainViewController: UIViewController {
     let startPauseButton = UIButton(type: .system)
     var startPauseButtonYAnchor: NSLayoutConstraint!
     var startPauseButtonLeading: NSLayoutConstraint!
+
     
     let setTurnButton = GradientButton() // UIButton(type: .system)
     
@@ -83,12 +129,12 @@ class MainViewController: UIViewController {
     var gradientBlock: CAGradientLayer = {
         var layer = CAGradientLayer()
         layer.type = .axial
-        
-        layer.colors = [
-            UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
-            UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
-        ]
-        
+
+//        layer.colors = [
+//            UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
+//            UIColor(red: 86/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
+//        ]
+//
         layer.locations = [0, 1.25]
 
         return layer
@@ -111,6 +157,12 @@ class MainViewController: UIViewController {
         
         view.layer.addSublayer(gradientBlock)
         gradientBlock.frame = view.bounds
+//        gradientBlock.colors = [
+//            UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+//            UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+//        ]
+        
+
     
         
         // --------------------------------------------------
@@ -240,18 +292,44 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        
+        
         if turn == 1 {
             self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+            
+            
+            
+            gradientBlock.colors = [
+                UIColor(red: 86/255, green: 84/255, blue: 255/255, alpha: 1).cgColor,
+                UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor
+                    
+            ]
+            
+            
         } else {
             self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
+            
+            gradientBlock.colors = [
+                UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
+                UIColor(red: 86/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
+            ]
+           
         }
         
         
-        gradientBlock.shadowColor = UIColor.black.cgColor
+//                    gradientBlock.colors = [UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
+//                    UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor]
+
+                
+        
+        
+        gradientBlock.shadowColor = UIColor.darkGray.cgColor
         //buttonInnerLayer.shadowOffset = CGSize(width: 5, height: 5)
         gradientBlock.shadowRadius = 10
         gradientBlock.shadowOpacity = 1.0
         gradientBlock.cornerRadius = 15
+        
+        
     }
     
     // ------------------------------------------------------
@@ -389,6 +467,72 @@ class MainViewController: UIViewController {
         updateBothLabels()
     }
     
+//    func continueBlink() {
+//
+//        UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat], animations: {
+////                        self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
+//
+//
+//            UIView.animate(withDuration: 0.25) {
+//                self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
+//            }
+//
+//            UIView.animate(withDuration: 0.25) {
+//                self.startPauseButton.setTitleColor(UIColor.clear, for: .normal)
+//            }
+//
+//
+//
+//
+//
+//
+////                        if self.startPauseButton.titleColor(for: .normal) == UIColor.clear {
+////                            self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
+////
+////                        } else {
+////                            self.startPauseButton.setTitleColor(UIColor.clear, for: .normal)
+////                        }
+//        })
+//
+//
+//
+//
+////        if startPauseButton.titleColor(for: .normal) == UIColor.systemPurple || startPauseButton.titleColor(for: .normal) == UIColor.systemPink {
+////
+//////            if gameState == .paused {
+////            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .allowUserInteraction, .repeat], animations: {
+////                self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
+//////                if self.startPauseButton.titleColor(for: .normal) == UIColor.clear {
+//////                    self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
+//////
+//////                } else {
+//////                    self.startPauseButton.setTitleColor(UIColor.clear, for: .normal)
+//////                }
+//////
+//////
+////
+////
+////            } , completion: { finished in
+////                self.startPauseButton.setTitleColor(UIColor.systemOrange, for: .normal)
+////            })
+////
+//////                UIView.animate(withDuration: 0.5) {
+//////                    self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
+//////                }
+//////            } else {
+//////                startPauseButton.setTitleColor(UIColor.systemOrange, for: .normal)
+//////            }
+////
+////
+////
+////
+////        } else {
+////            print ("else")
+////        }
+//
+//    } // End func
+    
+    
     
     
     
@@ -482,8 +626,34 @@ class MainViewController: UIViewController {
         }
         
         
+        changeGradientBlockColors()
+        
+        
+    } // End func changeTurnsButtonTapped
+    
+    
+    
+    func changeGradientBlockColors() {
+        
         let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-        gradientChangeAnimation.duration = 0.4
+        gradientChangeAnimation.duration = 1
+        
+        switch gameState {
+        case .stopped:
+            if self.turn == 1 {
+                gradientChangeAnimation.toValue = [
+                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor,
+                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor
+                ]
+            } else {
+                gradientChangeAnimation.toValue = [
+                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+                ]
+            }
+
+        case .running:
+            
             if self.turn == 1 {
                     gradientChangeAnimation.toValue = [
                         UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
@@ -495,12 +665,52 @@ class MainViewController: UIViewController {
                         UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor
                     ]
                 }
+            
+            
+        case .paused:
+            if self.turn == 1 {
+                gradientChangeAnimation.toValue = [
+                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor,
+                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor
+                ]
+            } else {
+                gradientChangeAnimation.toValue = [
+                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+                ]
+            }
+            
+            
+        case .ended:
+            if self.turn == 1 {
+                gradientChangeAnimation.toValue = [
+                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor,
+                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor
+                ]
+            } else {
+                gradientChangeAnimation.toValue = [
+                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+                ]
+            }
+        
+        }
+        
+        
+        
                 gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
                 gradientChangeAnimation.isRemovedOnCompletion = false
                 gradientBlock.add(gradientChangeAnimation, forKey: "colorChange")
         
         
-    } // End func changeTurnsButtonTapped
+    }
+    
+    
+    
+    
+    
+    
+    
         
 
     
@@ -523,6 +733,8 @@ class MainViewController: UIViewController {
         } else if gameState == GameState.ended {
             startPauseButton.setTitle("CLICK RESET", for: .normal)
         }
+        
+        changeGradientBlockColors()
     }
     
     
@@ -534,6 +746,9 @@ class MainViewController: UIViewController {
     
     @objc func resetButtonAction(sender: UIButton!) {
         gameState = GameState.stopped
+        
+        changeGradientBlockColors()
+        
     }
     
 }
