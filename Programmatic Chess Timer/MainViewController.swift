@@ -98,7 +98,7 @@ class MainViewController: UIViewController {
                 clearTimer()
                 
                 // Start/Pause, Set Turns, and Reset buttons:
-                startPauseButton.setTitle("END", for: UIControl.State.normal)
+                startPauseButton.setTitle("end", for: UIControl.State.normal)
                 startPauseButton.setTitleColor(UIColor.darkGray, for: .normal)
             }
         }
@@ -444,6 +444,7 @@ class MainViewController: UIViewController {
     
     @objc func LabelTapped(_ sender: UITapGestureRecognizer) {
         print("Label Tapped")
+        gameState = .stopped
         self.showSetClockTime()
     }
     
