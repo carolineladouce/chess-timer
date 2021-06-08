@@ -135,7 +135,7 @@ class MainViewController: UIViewController {
 //            UIColor(red: 86/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
 //        ]
 //
-        layer.locations = [0, 1.25]
+        layer.locations = [0, 1]
 
         return layer
     }()
@@ -300,7 +300,7 @@ class MainViewController: UIViewController {
             
             
             gradientBlock.colors = [
-                UIColor(red: 86/255, green: 84/255, blue: 255/255, alpha: 1).cgColor,
+                UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor,
                 UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor
                     
             ]
@@ -311,7 +311,7 @@ class MainViewController: UIViewController {
             
             gradientBlock.colors = [
                 UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
-                UIColor(red: 86/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
+                UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
             ]
            
         }
@@ -642,13 +642,13 @@ class MainViewController: UIViewController {
         case .stopped:
             if self.turn == 1 {
                 gradientChangeAnimation.toValue = [
-                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor,
-                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor
+                    UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor
                 ]
             } else {
                 gradientChangeAnimation.toValue = [
-                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
-                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+                    UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
+                    UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
                 ]
             }
 
