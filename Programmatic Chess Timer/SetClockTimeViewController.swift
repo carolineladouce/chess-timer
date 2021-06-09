@@ -16,21 +16,21 @@ class SetClockTimeViewController: UIViewController {
    public var mainViewController: MainViewController?
     
     
-//    var gradientLayer: CAGradientLayer = {
-//        var layer = CAGradientLayer()
-//        layer.type = .axial
-//
-//        layer.colors = [
-//            UIColor(red: 228/255, green: 227/255, blue: 227/255, alpha: 1).cgColor,
-//            UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
-//        ]
-//
-//        layer.locations = [0, 0.75]
-//
-//
-//
-//        return layer
-//    }()
+    var gradientLayer: CAGradientLayer = {
+        var layer = CAGradientLayer()
+        layer.type = .axial
+
+        layer.colors = [
+            UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
+            UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
+        ]
+
+        layer.locations = [0, 1]
+
+
+
+        return layer
+    }()
     
     
     /// in seconds
@@ -61,10 +61,10 @@ class SetClockTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 244/255, green: 243/255, blue: 243/255, alpha: 1)
+        view.backgroundColor = UIColor.white
 
-//        view.layer.addSublayer(gradientLayer)
-//        gradientLayer.frame = view.bounds
+        view.layer.addSublayer(gradientLayer)
+        gradientLayer.frame = view.bounds
     
         configureTitleLabel()
         configureStackView()
