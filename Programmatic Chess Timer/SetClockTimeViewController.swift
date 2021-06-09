@@ -120,7 +120,7 @@ class SetClockTimeViewController: UIViewController {
         view.addSubview(titleLabel)
         titleLabel.text = "Set timer ⏱"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
-        titleLabel.textColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+        titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
