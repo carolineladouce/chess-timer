@@ -323,10 +323,10 @@ class MainViewController: UIViewController {
         
    
         gradientBlock.shadowColor = UIColor.darkGray.cgColor
-        //buttonInnerLayer.shadowOffset = CGSize(width: 5, height: 5)
+//        gradientBlock.shadowOffset = CGSize(width: 5, height: 5)
         gradientBlock.shadowRadius = 10
-        gradientBlock.shadowOpacity = 1.0
-        gradientBlock.cornerRadius = 15
+        gradientBlock.shadowOpacity = 0.75
+        gradientBlock.cornerRadius = 10
         
         
     }
