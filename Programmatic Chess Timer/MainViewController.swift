@@ -57,46 +57,9 @@ class MainViewController: UIViewController {
                 
                 self.startPauseButton.setTitleColor(UIColor.systemPurple, for: .normal)
                 
-                // Purple mode
-//                self.gradientBlock.colors =  [
-//                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
-//                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
-//                ]
-                
                 changeGradientBlockColors()
-                //continueBlink()
-//
-//                while newValue == .paused {
-//                    startPauseButton.setTitleColor(.systemPurple, for: .normal)
-//
-//
-//                    if startPauseButton.titleColor(for: .normal) == UIColor.systemPurple {
-//                        UIView.animate(withDuration: 1) {
-//                            //self.startPauseButton.alpha = 10
-//                            self.startPauseButton.setTitleColor(.systemPink, for: .normal)
-//                        }
-//                    } else if startPauseButton.titleColor(for: .normal) == UIColor.systemPink {
-//                        UIView.animate(withDuration: 1) {
-//                            //self.startPauseButton.alpha = 0
-//                            self.startPauseButton.setTitleColor(.systemPurple, for: .normal)
-//                        }
-//                    }
-                    
-                    
-                    
-                  
-                    
-                //} // end while loop
-                
-                
-                // Animate startPauseButton:
-              
-                
-                
-              
-                
-                //self.startPauseButton.setTitleColor(.systemPurple, for: .normal)
             }
+            
             if newValue == .ended {
                 // Timers:
                 clearTimer()
@@ -121,7 +84,7 @@ class MainViewController: UIViewController {
     var startPauseButtonLeading: NSLayoutConstraint!
 
     
-    let setTurnButton = GradientButton() // UIButton(type: .system)
+    let setTurnButton = GradientButton()
     
     let resetButton = UIButton(type: .system)
     var resetButtonYAnchor: NSLayoutConstraint!
@@ -136,11 +99,6 @@ class MainViewController: UIViewController {
         var layer = CAGradientLayer()
         layer.type = .axial
 
-//        layer.colors = [
-//            UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
-//            UIColor(red: 86/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
-//        ]
-//
         layer.locations = [0, 1]
 
         return layer
@@ -163,13 +121,7 @@ class MainViewController: UIViewController {
         
         view.layer.addSublayer(gradientBlock)
         gradientBlock.frame = view.bounds
-//        gradientBlock.colors = [
-//            UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
-//            UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
-//        ]
-        
 
-    
         
         // --------------------------------------------------
         // Create Middle Buttons:
@@ -186,9 +138,21 @@ class MainViewController: UIViewController {
         // Add button action:
         startPauseButton.addTarget(self, action: #selector(startPauseButtonAction), for: .touchDown)
         
+        let turn1StartPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
+        let turn2StartPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30)
+            
+        let startPauseButtonLeadingAnchor = startPauseButton.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor, constant: 20)
         
-        startPauseButtonYAnchor = startPauseButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
-        startPauseButtonLeading = startPauseButton.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor, constant: 20)
+        
+        startPauseButtonLeading = startPauseButtonLeadingAnchor
+        
+        if turn == 1 {
+            startPauseButtonYAnchor = turn1StartPauseButtonYAnchor
+        } else {
+            startPauseButtonYAnchor = turn2StartPauseButtonYAnchor
+        }
+        
+       
         
         // Constraints:
         NSLayoutConstraint.activate([
@@ -231,8 +195,22 @@ class MainViewController: UIViewController {
         resetButton.addTarget(self, action: #selector(resetButtonAction), for: .touchDown)
         
         
-        resetButtonYAnchor = resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
-        resetButtonTrailing = resetButton.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor, constant: -20)
+        
+        let turn1resetButtonYAnchor = resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30)
+        let turn2resetButtonYAnchor = resetButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30)
+        
+        
+        let resetButtonTrailingAnchor = resetButton.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor, constant: -20)
+        
+        resetButtonTrailing = resetButtonTrailingAnchor
+        
+        if turn == 1 {
+            resetButtonYAnchor = turn1resetButtonYAnchor
+        } else {
+            resetButtonYAnchor = turn2resetButtonYAnchor
+        }
+        
+        
         
         
         // Constraints:
@@ -251,7 +229,7 @@ class MainViewController: UIViewController {
         
         // Top Label/ player1clock:
         player1clock.text = "0"
-        player1clock.textColor = .white
+        player1clock.textColor = .lightGray
         player1clock.font = UIFont.boldSystemFont(ofSize: 96)
         player1clock.translatesAutoresizingMaskIntoConstraints = false
         
@@ -270,11 +248,26 @@ class MainViewController: UIViewController {
         // --------------------------------------------------
         // Create Bottom Label/ player2clock:
         player2clock.text = "0"
-        player2clock.textColor = .darkGray
+        player2clock.textColor = .white
         player2clock.font = UIFont.boldSystemFont(ofSize: 96)
         player2clock.translatesAutoresizingMaskIntoConstraints = false
         
+        
+        
+        
+        
         view.addSubview(player2clock)
+        
+        if turn == 1 {
+            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+            player2clock.layer.shadowRadius = 5
+            player2clock.layer.shadowOpacity = 0
+        } else {
+            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+            player2clock.layer.shadowRadius = 5
+            player2clock.layer.shadowOpacity = 0.5
+        }
+        
         
         NSLayoutConstraint.activate([
             player2clock.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 175)
@@ -283,6 +276,10 @@ class MainViewController: UIViewController {
         player2clock.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         self.view = view
+        
+        
+        
+        
         
         player1clock.text = formatTimer(time: TimeInterval(player1timeout))
         player2clock.text = formatTimer(time: TimeInterval(player2timeout))
@@ -302,7 +299,7 @@ class MainViewController: UIViewController {
         
         
         
-        if turn == 1 {
+        if turn == 2 {
             self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
             
             
@@ -324,13 +321,7 @@ class MainViewController: UIViewController {
            
         }
         
-        
-//                    gradientBlock.colors = [UIColor(red: 255/255, green: 198/255, blue: 114/255, alpha: 1).cgColor,
-//                    UIColor(red: 255/255, green: 142/255, blue: 169/255, alpha: 1).cgColor]
-
-                
-        
-        
+   
         gradientBlock.shadowColor = UIColor.darkGray.cgColor
         //buttonInnerLayer.shadowOffset = CGSize(width: 5, height: 5)
         gradientBlock.shadowRadius = 10
@@ -421,19 +412,42 @@ class MainViewController: UIViewController {
     
     
     func textBackgroundChangeColor() {
-        if turn == 1 {
+        if turn == 2 {
             //player1clock.backgroundColor = UIColor.green
-            player1clock.textColor = UIColor.darkGray
+            player1clock.textColor = UIColor.lightGray
+            
+            player1clock.layer.shadowColor = UIColor.darkGray.cgColor
+            player1clock.layer.shadowRadius = 5
+            player1clock.layer.shadowOpacity = 0
+            
             
             //player2clock.backgroundColor = UIColor.black
             player2clock.textColor = UIColor.white
+            
+            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+            player2clock.layer.shadowRadius = 5
+            player2clock.layer.shadowOpacity = 0.5
+            
         } else {
             //player2clock.backgroundColor = UIColor.green
-            player2clock.textColor = UIColor.darkGray
+            player2clock.textColor = UIColor.lightGray
+            
+            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+            player2clock.layer.shadowRadius = 5
+            player2clock.layer.shadowOpacity = 0
+            
             
             //player1clock.backgroundColor = UIColor.black
             player1clock.textColor = UIColor.white
+            
+            player1clock.layer.shadowColor = UIColor.darkGray.cgColor
+            player1clock.layer.shadowRadius = 5
+            player1clock.layer.shadowOpacity = 0.5
         }
+        
+        
+        
+    
     }
     
 
@@ -481,70 +495,7 @@ class MainViewController: UIViewController {
         updateBothLabels()
     }
     
-//    func continueBlink() {
-//
-//        UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat], animations: {
-////                        self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
-//
-//
-//            UIView.animate(withDuration: 0.25) {
-//                self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
-//            }
-//
-//            UIView.animate(withDuration: 0.25) {
-//                self.startPauseButton.setTitleColor(UIColor.clear, for: .normal)
-//            }
-//
-//
-//
-//
-//
-//
-////                        if self.startPauseButton.titleColor(for: .normal) == UIColor.clear {
-////                            self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
-////
-////                        } else {
-////                            self.startPauseButton.setTitleColor(UIColor.clear, for: .normal)
-////                        }
-//        })
-//
-//
-//
-//
-////        if startPauseButton.titleColor(for: .normal) == UIColor.systemPurple || startPauseButton.titleColor(for: .normal) == UIColor.systemPink {
-////
-//////            if gameState == .paused {
-////            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .allowUserInteraction, .repeat], animations: {
-////                self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
-//////                if self.startPauseButton.titleColor(for: .normal) == UIColor.clear {
-//////                    self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
-//////
-//////                } else {
-//////                    self.startPauseButton.setTitleColor(UIColor.clear, for: .normal)
-//////                }
-//////
-//////
-////
-////
-////            } , completion: { finished in
-////                self.startPauseButton.setTitleColor(UIColor.systemOrange, for: .normal)
-////            })
-////
-//////                UIView.animate(withDuration: 0.5) {
-//////                    self.startPauseButton.setTitleColor(UIColor.systemPink, for: .normal)
-//////                }
-//////            } else {
-//////                startPauseButton.setTitleColor(UIColor.systemOrange, for: .normal)
-//////            }
-////
-////
-////
-////
-////        } else {
-////            print ("else")
-////        }
-//
-//    } // End func
+
     
     
     
@@ -560,9 +511,7 @@ class MainViewController: UIViewController {
         
         UIView.animate(withDuration: 0.3) { [self] in
             self.setTurnButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? CGFloat.pi : 0)
-        
-//            self.resetButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
-//            self.startPauseButton.transform = CGAffineTransform(rotationAngle: self.turn == 1 ? .pi : 0)
+ 
         } // End UIView.animate
         
         
@@ -600,7 +549,7 @@ class MainViewController: UIViewController {
         let animateStartButton = startPauseButton
         let animateResetButton = resetButton
         
-        if turn == 1 {
+        if turn == 2 {
             print("Block should be on bottom")
             
             UIView.animate(withDuration: 0.5) {
@@ -610,8 +559,10 @@ class MainViewController: UIViewController {
             
             self.gradientBlock.frame = CGRect(x: 25, y: self.view.frame.size.height / 2, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
             
-            self.startPauseButton.transform = CGAffineTransform(rotationAngle: .pi)
-            self.resetButton.transform = CGAffineTransform(rotationAngle: .pi)
+            
+            
+            self.startPauseButton.transform = CGAffineTransform(rotationAngle: 0)
+            self.resetButton.transform = CGAffineTransform(rotationAngle: 0)
             
             UIView.animate(withDuration: 0.5) {
                 animateStartButton.alpha = 10
@@ -628,8 +579,8 @@ class MainViewController: UIViewController {
 
             self.gradientBlock.frame = CGRect(x: 25, y: 0, width: self.view.frame.width - 50, height: self.view.frame.size.height / 2)
             
-            self.startPauseButton.transform = CGAffineTransform(rotationAngle: 0)
-            self.resetButton.transform = CGAffineTransform(rotationAngle: 0)
+            self.startPauseButton.transform = CGAffineTransform(rotationAngle: .pi)
+            self.resetButton.transform = CGAffineTransform(rotationAngle: .pi)
             
             UIView.animate(withDuration: 0.5) {
                 animateStartButton.alpha = 10
