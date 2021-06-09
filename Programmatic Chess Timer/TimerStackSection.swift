@@ -29,15 +29,17 @@ class TimerStackSection: UIButton {
     
     
     func setupButton() {
-        setTitleColor(UIColor(red: 19/255, green: 19/255, blue: 19/255, alpha: 1), for: .normal)
-        backgroundColor =  .white
+        setTitleColor(UIColor.white, for: .normal)
+        backgroundColor =  .clear
         titleLabel?.font = UIFont(name: "TITLE", size: 32)
         layer.cornerRadius = 10
-        layer.shadowColor = UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1).cgColor
-        layer.shadowOffset = CGSize(width: 2, height: 5)
-        layer.shadowRadius = 5
-        layer.shadowOpacity = 1.0
-        
+        layer.borderWidth = 1.5
+        layer.borderColor = UIColor.white.cgColor
+//        layer.shadowColor = UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1).cgColor
+//        layer.shadowOffset = CGSize(width: 2, height: 5)
+//        layer.shadowRadius = 5
+//        layer.shadowOpacity = 1.0
+//
     }
 }
 
