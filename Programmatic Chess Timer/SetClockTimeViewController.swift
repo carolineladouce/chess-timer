@@ -61,7 +61,7 @@ class SetClockTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.clear
 
         view.layer.addSublayer(gradientLayer)
         gradientLayer.frame = view.bounds
@@ -145,6 +145,8 @@ class SetClockTimeViewController: UIViewController {
                 self.mainViewController?.timeSelected(time: time)
             }
     
+            
+            
             
             
             dismiss(animated: true, completion: {})
