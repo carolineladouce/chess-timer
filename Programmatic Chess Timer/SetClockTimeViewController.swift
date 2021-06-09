@@ -144,6 +144,8 @@ class SetClockTimeViewController: UIViewController {
                 self.mainViewController?.timeSelected(time: time)
             }
     
+            mainViewController?.gameState = .stopped
+            
             dismiss(animated: true, completion: {})
         }
     }

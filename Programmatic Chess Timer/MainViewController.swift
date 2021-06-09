@@ -34,6 +34,8 @@ class MainViewController: UIViewController {
                 // Start/Pause, Set Turns, and Reset buttons:
                 startPauseButton.setTitle("start", for: UIControl.State.normal)
                 startPauseButton.setTitleColor(UIColor.darkGray, for: .normal)
+                
+                changeGradientBlockColors()
             }
             if newValue == .running {
                 // Timers:
@@ -43,6 +45,8 @@ class MainViewController: UIViewController {
                 // Start/Pause, Set Turns, and Reset buttons:
                 startPauseButton.setTitle("pause", for: UIControl.State.normal)
                 startPauseButton.setTitleColor(UIColor.darkGray, for: .normal)
+                
+                changeGradientBlockColors()
             }
             if newValue == .paused {
                 // Timers:
@@ -54,12 +58,12 @@ class MainViewController: UIViewController {
                 self.startPauseButton.setTitleColor(UIColor.systemPurple, for: .normal)
                 
                 // Purple mode
-                self.gradientBlock.colors =  [
-                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
-                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
-                ]
+//                self.gradientBlock.colors =  [
+//                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+//                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+//                ]
                 
-                
+                changeGradientBlockColors()
                 //continueBlink()
 //
 //                while newValue == .paused {
@@ -100,6 +104,8 @@ class MainViewController: UIViewController {
                 // Start/Pause, Set Turns, and Reset buttons:
                 startPauseButton.setTitle("end", for: UIControl.State.normal)
                 startPauseButton.setTitleColor(UIColor.darkGray, for: .normal)
+                
+                changeGradientBlockColors()
             }
         }
     } // End gameState
