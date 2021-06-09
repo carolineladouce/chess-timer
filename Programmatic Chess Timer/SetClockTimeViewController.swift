@@ -15,6 +15,7 @@ class TimerButtonTapGestureRecognizer: UITapGestureRecognizer {
 class SetClockTimeViewController: UIViewController {
    public var mainViewController: MainViewController?
     
+    
 //    var gradientLayer: CAGradientLayer = {
 //        var layer = CAGradientLayer()
 //        layer.type = .axial
@@ -144,7 +145,7 @@ class SetClockTimeViewController: UIViewController {
                 self.mainViewController?.timeSelected(time: time)
             }
     
-            mainViewController?.gameState = .stopped
+            
             
             dismiss(animated: true, completion: {})
         }

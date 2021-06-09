@@ -287,6 +287,8 @@ class MainViewController: UIViewController {
         player1clock.text = formatTimer(time: TimeInterval(player1timeout))
         player2clock.text = formatTimer(time: TimeInterval(player2timeout))
         
+        
+        
         self.setupLabelTap()
         
     }
@@ -450,8 +452,11 @@ class MainViewController: UIViewController {
     
     @objc func LabelTapped(_ sender: UITapGestureRecognizer) {
         print("Label Tapped")
-        gameState = .stopped
+        
+        
         self.showSetClockTime()
+        gameState = .stopped
+        changeGradientBlockColors()
     }
     
     
@@ -463,6 +468,8 @@ class MainViewController: UIViewController {
         let player2clock = UITapGestureRecognizer(target: self, action: #selector(self.LabelTapped(_:)))
         self.player2clock.isUserInteractionEnabled = true
         self.player2clock.addGestureRecognizer(player2clock)
+        
+        
     }
     
     
