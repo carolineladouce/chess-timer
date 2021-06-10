@@ -129,7 +129,7 @@ class MainViewController: UIViewController {
         // Start/Pause Button:
         startPauseButton.setTitle("start", for: .normal)
         startPauseButton.setTitleColor(.darkGray, for: .normal)
-        startPauseButton.setTitleColor(.orange, for: .highlighted)
+//        startPauseButton.setTitleColor(UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1), for: .highlighted)
         startPauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
         startPauseButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -185,7 +185,7 @@ class MainViewController: UIViewController {
         // Reset Button:
         resetButton.setTitle("reset", for: .normal)
         resetButton.setTitleColor(.darkGray, for: .normal)
-        resetButton.setTitleColor(.orange, for: .highlighted)
+        resetButton.setTitleColor(.purple, for: .highlighted)
         resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -307,7 +307,8 @@ class MainViewController: UIViewController {
             gradientBlock.colors = [
                 UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor,
                 UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor
-                    
+                
+                
             ]
             
             
@@ -317,6 +318,8 @@ class MainViewController: UIViewController {
             gradientBlock.colors = [
                 UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
                 UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
+                
+                
             ]
            
         }
@@ -324,8 +327,8 @@ class MainViewController: UIViewController {
    
         gradientBlock.shadowColor = UIColor.darkGray.cgColor
 //        gradientBlock.shadowOffset = CGSize(width: 5, height: 5)
-        gradientBlock.shadowRadius = 10
-        gradientBlock.shadowOpacity = 0.75
+        gradientBlock.shadowRadius = 8
+        gradientBlock.shadowOpacity = 1
         gradientBlock.cornerRadius = 10
         
         
@@ -607,13 +610,13 @@ class MainViewController: UIViewController {
         case .stopped:
             if self.turn == 1 {
                 gradientChangeAnimation.toValue = [
-                    UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor,
-                    UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor
+                    UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
+                    UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
                 ]
             } else {
                 gradientChangeAnimation.toValue = [
-                    UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
-                    UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
+                    UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor
                 ]
             }
 

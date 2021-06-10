@@ -105,9 +105,9 @@
 			children = (
 				C6AEF0C425D38E6800CF003F /* AppDelegate.swift */,
 				C61F80C125DF526F00E159F1 /* MainViewController.swift */,
+				C66C896725F83756001130A3 /* TimerStackSection.swift */,
 				C6BA4D962633B6050028C33F /* GradientButton.swift */,
 				C6DCCD5625EECF88004F6B08 /* SetClockTimeViewController.swift */,
-				C66C896725F83756001130A3 /* TimerStackSection.swift */,
 				C6AEF0C625D38E6800CF003F /* SceneDelegate.swift */,
 				C6AEF0CD25D38E6A00CF003F /* Assets.xcassets */,
 				C6AEF0CF25D38E6A00CF003F /* LaunchScreen.storyboard */,
