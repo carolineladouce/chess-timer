@@ -1,5 +1,9 @@
 # Chess Timer 
 
+https://user-images.githubusercontent.com/39711539/121627098-bc429880-ca44-11eb-9d26-69d4e571ee04.mov
+
+
+
 ## About me:
 
 Hi, my name is Caroline. I'm a self-taught engineer and this is my first app project in process. 
