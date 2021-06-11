@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
                 clearTimer()
                 
                 // Start/Pause, Set Turns, and Reset buttons:
-                startPauseButton.setTitle("cont...", for: UIControl.State.normal)
+                startPauseButton.setTitle("go", for: UIControl.State.normal)
                 
                 self.startPauseButton.setTitleColor(UIColor.systemPurple, for: .normal)
                 
@@ -258,15 +258,15 @@ class MainViewController: UIViewController {
         
         view.addSubview(player2clock)
         
-        if turn == 1 {
-            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
-            player2clock.layer.shadowRadius = 5
-            player2clock.layer.shadowOpacity = 0
-        } else {
-            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
-            player2clock.layer.shadowRadius = 5
-            player2clock.layer.shadowOpacity = 0.5
-        }
+//        if turn == 1 {
+//            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+//            player2clock.layer.shadowRadius = 5
+//            player2clock.layer.shadowOpacity = 0
+//        } else {
+//            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+//            player2clock.layer.shadowRadius = 5
+//            player2clock.layer.shadowOpacity = 0.5
+//        }
         
         
         NSLayoutConstraint.activate([
@@ -419,33 +419,33 @@ class MainViewController: UIViewController {
             //player1clock.backgroundColor = UIColor.green
             player1clock.textColor = UIColor.lightGray
             
-            player1clock.layer.shadowColor = UIColor.darkGray.cgColor
-            player1clock.layer.shadowRadius = 5
-            player1clock.layer.shadowOpacity = 0
+//            player1clock.layer.shadowColor = UIColor.darkGray.cgColor
+//            player1clock.layer.shadowRadius = 5
+//            player1clock.layer.shadowOpacity = 0
             
             
             //player2clock.backgroundColor = UIColor.black
             player2clock.textColor = UIColor.white
             
-            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
-            player2clock.layer.shadowRadius = 5
-            player2clock.layer.shadowOpacity = 0.5
+//            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+//            player2clock.layer.shadowRadius = 5
+//            player2clock.layer.shadowOpacity = 0.5
             
         } else {
             //player2clock.backgroundColor = UIColor.green
             player2clock.textColor = UIColor.lightGray
             
-            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
-            player2clock.layer.shadowRadius = 5
-            player2clock.layer.shadowOpacity = 0
+//            player2clock.layer.shadowColor = UIColor.darkGray.cgColor
+//            player2clock.layer.shadowRadius = 5
+//            player2clock.layer.shadowOpacity = 0
             
             
             //player1clock.backgroundColor = UIColor.black
             player1clock.textColor = UIColor.white
             
-            player1clock.layer.shadowColor = UIColor.darkGray.cgColor
-            player1clock.layer.shadowRadius = 5
-            player1clock.layer.shadowOpacity = 0.5
+//            player1clock.layer.shadowColor = UIColor.darkGray.cgColor
+//            player1clock.layer.shadowRadius = 5
+//            player1clock.layer.shadowOpacity = 0.5
         }
         
         
@@ -638,13 +638,15 @@ class MainViewController: UIViewController {
         case .paused:
             if self.turn == 1 {
                 gradientChangeAnimation.toValue = [
-                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor,
-                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor
+                    UIColor(red: 141/255, green: 71/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 79/255, green: 117/255, blue: 255/255, alpha: 1).cgColor
+                    
                 ]
             } else {
                 gradientChangeAnimation.toValue = [
-                    UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
-                    UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+                    UIColor(red: 79/255, green: 117/255, blue: 255/255, alpha: 1).cgColor,
+                    UIColor(red: 141/255, green: 71/255, blue: 255/255, alpha: 1).cgColor
+                    
                 ]
             }
             
