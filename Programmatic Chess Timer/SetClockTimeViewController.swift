@@ -15,21 +15,66 @@ class TimerButtonTapGestureRecognizer: UITapGestureRecognizer {
 class SetClockTimeViewController: UIViewController {
    public var mainViewController: MainViewController?
     
+    
+    var gradientLayer: CAGradientLayer = {
+        var layer = CAGradientLayer()
+        layer.type = .axial
+
+        layer.colors = [
+            UIColor(red: 255/255, green: 139/255, blue: 118/255, alpha: 1).cgColor,
+            UIColor(red: 87/255, green: 84/255, blue: 255/255, alpha: 1).cgColor
+        ]
+
+        layer.locations = [0, 1]
+
+
+
+        return layer
+    }()
+    
+    
     /// in seconds
     let times: [Int] = [1,2,3,5,10]
-    var butttons: [TimerStackSection] = []
+    var buttons: [TimerStackSection] = []
 
     var stackView = UIStackView()
     var titleLabel = UILabel()
     
+//    var titleGradient: CAGradientLayer = {
+//        var gradientLayer = CAGradientLayer()
+//        gradientLayer.type = .axial
+//
+//        gradientLayer.colors = [
+//            UIColor(red: 82/255, green: 0/255, blue: 255/255, alpha: 1).cgColor,
+//            UIColor(red: 210/255, green: 116/255, blue: 254/255, alpha: 1).cgColor
+//        ]
+//
+//        gradientLayer.locations = [0, 0.5]
+//
+//        return gradientLayer
+//
+//    }()
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.clear
+
+        view.layer.addSublayer(gradientLayer)
+        gradientLayer.frame = view.bounds
+    
         configureTitleLabel()
         configureStackView()
+        
+//        view.layer.addSublayer(titleGradient)
+//        titleGradient.frame = view.bounds
+//        view.mask = titleLabel
+    
     }
     
-
     
     func configureStackView() {
         view.addSubview(stackView)
@@ -52,11 +97,12 @@ class SetClockTimeViewController: UIViewController {
             gr.time = i*60
             
             button.setTitle("\(i)", for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 54)
             
             button.isUserInteractionEnabled = true
             button.addGestureRecognizer(gr)
             stackView.addArrangedSubview(button)
-            self.butttons.append(button)
+            self.buttons.append(button)
         }
     }
     
@@ -64,26 +110,29 @@ class SetClockTimeViewController: UIViewController {
     func setstackViewConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 147.5).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -147.5).isActive = true
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
     }
     
     
     func configureTitleLabel() {
         view.addSubview(titleLabel)
-        titleLabel.text = "Set Timer:"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.text = "Set timer ⏱"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
+        titleLabel.textColor = UIColor.white
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
         
         setTitleLabelConstraints()
+        
     }
+    
     
     func setTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
@@ -96,6 +145,10 @@ class SetClockTimeViewController: UIViewController {
                 self.mainViewController?.timeSelected(time: time)
             }
     
+            
+            
+            
+            
             dismiss(animated: true, completion: {})
         }
     }
