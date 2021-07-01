@@ -6,23 +6,26 @@ https://user-images.githubusercontent.com/39711539/121627098-bc429880-ca44-11eb-
 
 ## About me:
 
-Hi, my name is Caroline. I'm a self-taught engineer and this is my first app project in process. 
+Hi, my name is Caroline. I'm a self-taught engineer and this is my first app project.
 There's alot to learn, so I wanted to start by tackling some basics. 
-Here are a few initial items I set out to accomplish:
+Here's a checklist of items that I set out to accomplish and made happen:
 
-1. Creating custom buttons 
-2. Calling and dismissing pop-up views
-3. Rendering stack views
-4. Getting cozy with constraints
-5. Bringing UI items to life with simple animations 
-6. Understanding color and gradients 
+1. Build the app entirely with UIKit instead of using Storyboards
+2. Create custom buttons with CALayer
+3. Call and dismiss pop-up views
+4. Render stack views
+5. Get cozy with constraints and Auto Layout
+6. Bring views to life with UIAnimation
+7. Better understand how to manipulate color and gradients with CAGradientLayer
 
-Here are a few very important items I've learned about along the way:
+Here are a few VERY important items that I learned about along the way:
 
 1. Using enums for state management 
 2. Timers and asynchronous state management 
 3. Formatting date and time
 
+
+Now, I'm working on getting the app in the app store, so stay tuned for updates :)
 
 ## How this app is built:
 
