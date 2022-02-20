@@ -3,11 +3,17 @@
 https://user-images.githubusercontent.com/39711539/121627098-bc429880-ca44-11eb-9d26-69d4e571ee04.mov
 
 
+## How this app is built:
 
-## About me:
+This app is built using Swift and UIKit
 
-Hi, my name is Caroline. I'm a self-taught engineer and this is my first app project.
-There's alot to learn, so I wanted to start by tackling some basics. 
+## How to use the app:
+
+Users can set the game time by clicking either timer and selecting a pre-set time from the pop-up view. Users can also switch turns and start/pause/reset the game. 
+
+## What I Learned 
+
+This was my very first app project and I wanted to start by tackling some basics. 
 Here's a checklist of items that I set out to accomplish and made happen:
 
 1. Build the app entirely with UIKit instead of using Storyboards
@@ -25,16 +31,4 @@ Here are a few VERY important items that I learned about along the way:
 3. Formatting date and time
 
 
-Now, I'm working on getting the app in the app store, so stay tuned for updates :)
 
-## How this app is built:
-
-This app is built using Swift and UIKit
-
-## How to use the app:
-
-Users can set the game time by clicking either timer and selecting a pre-set time from the pop-up view. Users can also switch turns and start/pause/reset the game. 
-
-
-## If you'd like to connect:
-[Caroline LaDouce](https://www.linkedin.com/in/carolineladouce/)
